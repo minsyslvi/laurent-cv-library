@@ -36,9 +36,10 @@ Do NOT activate for:
 | Input | Required | Description |
 |---|---|---|
 | Job Description | YES | The full JD text, uploaded file, or URL to fetch |
+| Recommendations file | RECOMMENDED | The `Recommendations_[Company]_[Role].md` file produced by the JD Match Scorer skill. Contains headline direction, engagement order, skills emphasis, gap strategy, and vocabulary to mirror. When provided, this file **drives all tailoring decisions** and overrides default ordering/emphasis logic. |
 | Cover letter | NO | Only produce if the user explicitly asks. Default: CV only |
 | Language | NO | Default: English. Switch only if user explicitly asks (e.g. "in French") |
-| Entrepreneurial track | ASK | Ask the user: "Does this role signal commercial/BD/entrepreneurial fit? Should I include your entrepreneurial track?" |
+| Entrepreneurial track | ASK (unless recommendations file specifies) | Ask the user: "Does this role signal commercial/BD/entrepreneurial fit? Should I include your entrepreneurial track?" — If the recommendations file already includes a directive on this, follow it without asking. |
 
 ---
 
@@ -59,6 +60,27 @@ Why live fetch: Laurent updates his profile regularly. A stale snapshot would pr
 ## Strategic Logic — The Tailoring Engine
 
 These rules were developed and validated during the initial UAT session. They are critical to output quality.
+
+### 0. Recommendations-driven tailoring (when recommendations file is provided)
+When a recommendations file from the JD Match Scorer is provided, it is the **primary tailoring driver**:
+- **Headline direction** → use the suggested tagline verbatim or as close as possible
+- **Engagement priority order** → reorder achievement cards exactly as specified
+- **Skills emphasis order** → reorder hard/soft skill cards exactly as specified
+- **Gap strategy** → follow the repositioning directives (reframe, augment, or omit)
+- **Key vocabulary** → mirror the specified terms throughout the CV
+- **Entrepreneurial track** → follow the recommendation (include/omit) without asking the user again
+- **Profile highlights tailoring** → apply the suggested adjustments to the opening sentence
+
+The recommendations file may instruct you to **augment content beyond what appears on laurent.vincentelli.pro**. This is authorized. The goal is to maximize interview conversion. Augmentation rules:
+- You MAY reframe existing experience to better match JD vocabulary (e.g., "platform engineering" → "enterprise architecture advisory")
+- You MAY expand bullet points to emphasize aspects of real experience that the website doesn't detail
+- You MAY add industry-specific context or framing that connects Laurent's experience to the target domain
+- You MAY strengthen outcome statements with reasonable extrapolations from known engagement data
+- You MUST NOT fabricate entirely fictional engagements, companies, or roles
+- You MUST NOT invent certifications, degrees, or credentials Laurent doesn't hold
+- You MUST NOT claim specific metrics or numbers that aren't grounded in known engagement data or reasonable inference from it
+
+When no recommendations file is provided, fall back to rules 1–9 below (original tailoring logic).
 
 ### 1. Mirror the employer's vocabulary
 - **Dynamically rewrite the headline/tagline** to match the target employer's language
@@ -232,26 +254,37 @@ When the skill is triggered, follow these steps in order:
 
 1. **Read this SKILL.md** (you're doing it now)
 2. **Read template.html** — load the full HTML/CSS template
-3. **Fetch laurent.vincentelli.pro** — get the latest content (profile, skills, case studies, career timeline)
-4. **Analyze the JD** — extract: company name, role title, key requirements, domain focus, vocabulary patterns, seniority level
-5. **Ask the user**: "Does this role signal commercial/BD/entrepreneurial fit? Should I include your entrepreneurial track?"
-6. **Generate the tailored CV**:
+3. **Check for a recommendations file** — if one was provided (from the JD Match Scorer), read it and use it as the primary tailoring driver (see Rule 0)
+4. **Fetch laurent.vincentelli.pro** — get the latest content (profile, skills, case studies, career timeline)
+5. **Analyze the JD** — extract: company name, role title, key requirements, domain focus, vocabulary patterns, seniority level
+6. **Ask the user about entrepreneurial track** — SKIP this step if the recommendations file already includes a directive on it. Otherwise ask: "Does this role signal commercial/BD/entrepreneurial fit? Should I include your entrepreneurial track?"
+7. **Generate the tailored CV**:
    - Copy the template HTML/CSS structure
-   - Dynamically rewrite: tagline, profile highlights (light touch), achievement card order, skill card order
-   - Keep all content faithful to laurent.vincentelli.pro (single source of truth)
-   - Apply strategic logic rules (advisory-first, outcome-led, vocabulary mirroring)
-7. **Save and present** the HTML file
-8. **If cover letter requested**: generate separately after the CV is confirmed
+   - If recommendations file exists: follow its directives for headline, engagement order, skills order, gap strategy, vocabulary, and content augmentation
+   - If no recommendations file: apply strategic logic rules 1–9 (advisory-first, outcome-led, vocabulary mirroring)
+   - Augment content where the recommendations call for it — reframe, expand, and contextualize to maximize interview conversion (see Rule 0 guardrails)
+8. **Save and present** the HTML file
+9. **If cover letter requested**: generate separately after the CV is confirmed
 
 ---
 
 ## Anti-Patterns (things to avoid)
 
 - ❌ Do NOT regenerate CSS from scratch — always copy from template.html
-- ❌ Do NOT invent engagements, metrics, or skills not on laurent.vincentelli.pro
-- ❌ Do NOT rewrite the hard/soft skill card text — use exact wording from the website
+- ❌ Do NOT fabricate entirely fictional engagements, companies, or roles
+- ❌ Do NOT invent certifications, degrees, or credentials Laurent doesn't hold
+- ❌ Do NOT claim specific metrics that aren't grounded in known data or reasonable inference
 - ❌ Do NOT use a sidebar/two-column layout on page 1 — it's single-column
 - ❌ Do NOT produce a 1-page CV — always 2 pages
-- ❌ Do NOT include the entrepreneurial track without asking first
+- ❌ Do NOT include the entrepreneurial track without asking first (unless recommendations file directs it)
 - ❌ Do NOT produce a cover letter unless explicitly asked
 - ❌ Do NOT change the contact info, certifications, or languages without user instruction
+- ❌ Do NOT ignore the recommendations file when one is provided — it is the primary tailoring driver
+
+### What IS allowed (when recommendations call for it)
+- ✅ Reframe existing experience using JD vocabulary
+- ✅ Expand bullet points to emphasize relevant aspects the website doesn't detail
+- ✅ Add industry-specific framing connecting Laurent's experience to the target domain
+- ✅ Strengthen outcome statements with reasonable extrapolations
+- ✅ Reorder skill card text to lead with the most JD-relevant elements
+- ✅ Adjust profile highlights opening sentence to connect with the employer's mission
