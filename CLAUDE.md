@@ -13,11 +13,48 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 **Workflow (two-skill pipeline):**
 1. Laurent finds a job description on a platform
-2. He pastes the JD into a Claude conversation
-3. **Skill 1 — JD Match Scorer** runs first: fetches laurent.vincentelli.pro, scores the JD against Laurent's profile across 6 weighted dimensions, produces an HTML dashboard + a tailoring recommendations file
-4. Laurent reviews the match report and decides go/no-go
-5. **Skill 2 — CV Generator** runs next: takes the JD + recommendations file as input, generates a tailored 2-page HTML CV. The recommendations drive content emphasis, ordering, and augmentation — the CV generator may add or reframe content beyond the website to maximize interview conversion
-6. Laurent exports to PDF or Google Docs/DOCX for submission
+2. He creates a dedicated folder for the application and pastes the JD into a markdown file (see folder convention below)
+3. He opens a Claude conversation, points to the JD file, and invokes the JD Match Scorer
+4. **Skill 1 — JD Match Scorer** runs: fetches laurent.vincentelli.pro, scores the JD against Laurent's profile across 6 weighted dimensions, produces an HTML dashboard + a tailoring recommendations file — both saved into the application folder
+5. Laurent reviews the match dashboard and decides go/no-go
+6. **Skill 2 — CV Generator** runs: reads the JD + recommendations file from the folder, generates a tailored 2-page HTML CV saved into the same folder. The recommendations drive content emphasis, ordering, and augmentation — the CV generator may add or reframe content beyond the website to maximize interview conversion
+7. Laurent exports the CV to PDF or Google Docs/DOCX for submission
+
+---
+
+## Per-Application Folder Convention
+
+Each job application lives in its own folder at the root of the workspace.
+
+**Folder naming:** `[company]-[location]-[role-slug]/`
+**JD file naming:** `jd-[RoleTitle].md`
+
+Example: `deloitte-luxembourg-cto-officer/jd-CTO Officer-TechnicalAdvisor.md`
+
+A folder evolves through three stages as the pipeline runs:
+
+**Stage 1 — JD dropped in (before scoring):**
+```
+deloitte-luxembourg-cto-officer/
+└── jd-CTO Officer-TechnicalAdvisor.md          ← you create this
+```
+
+**Stage 2 — After JD Match Scorer:**
+```
+deloitte-luxembourg-cto-officer/
+├── jd-CTO Officer-TechnicalAdvisor.md
+├── JD_Match_Deloitte_CTOOfficer.html            ← Skill 1: match dashboard
+└── Recommendations_Deloitte_CTOOfficer.md       ← Skill 1: tailoring directives
+```
+
+**Stage 3 — After CV Generator:**
+```
+deloitte-luxembourg-cto-officer/
+├── jd-CTO Officer-TechnicalAdvisor.md
+├── JD_Match_Deloitte_CTOOfficer.html
+├── Recommendations_Deloitte_CTOOfficer.md
+└── CV_Laurent_Vincentelli_Deloitte_CTOOfficer.html  ← Skill 2: tailored CV
+```
 
 ---
 
@@ -102,26 +139,37 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 ```
 /Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/
-├── CLAUDE.md                                    (this file)
+├── CLAUDE.md                                        (this file)
+├── [company]-[location]-[role-slug]/                (one folder per application)
+│   ├── jd-[RoleTitle].md                            (JD — created by Laurent)
+│   ├── JD_Match_[Company]_[Role].html               (Skill 1 output)
+│   ├── Recommendations_[Company]_[Role].md          (Skill 1 output → Skill 2 input)
+│   └── CV_Laurent_Vincentelli_[Company]_[Role].html (Skill 2 output)
 └── .agents/
     └── skills/
-        ├── jd-match-scorer/                     (Skill 1 — runs first)
-        │   ├── SKILL.md                         (scoring algorithm + instructions)
-        │   └── template.html                    (dashboard template)
-        └── cv-generator/                        (Skill 2 — runs after go/no-go)
-            ├── SKILL.md                         (CV generation instructions)
-            └── template.html                    (v8 HTML/CSS template)
+        ├── jd-match-scorer/                         (Skill 1 — runs first)
+        │   ├── SKILL.md                             (scoring algorithm + instructions)
+        │   └── template.html                        (dashboard template)
+        └── cv-generator/                            (Skill 2 — runs after go/no-go)
+            ├── SKILL.md                             (CV generation instructions)
+            └── template.html                        (v8 HTML/CSS template)
 ```
 
 ---
 
 ## How to use in a new conversation
 
-1. Start a new Claude conversation with this workspace as context
-2. Paste a job description
-3. **Option A — Full pipeline:** Say "score this JD" or "analyze this job" → Claude runs the JD Match Scorer, presents the dashboard, waits for go/no-go, then generates the CV using the recommendations
-4. **Option B — Direct CV:** Say "create a CV for this JD, skip scoring" → Claude skips the match scorer and generates the CV directly (original workflow)
-5. **Option C — Score only:** Say "just score this, don't generate a CV" → Claude produces only the match dashboard
+1. Create a folder for the application: `[company]-[location]-[role-slug]/`
+2. Paste the JD into a markdown file inside it: `jd-[RoleTitle].md`
+3. Open a new Claude conversation with this workspace as context
+4. Point Claude to the JD file: e.g. "Score this JD: `deloitte-luxembourg-cto-officer/jd-CTO Officer-TechnicalAdvisor.md`"
+5. Claude reads the JD, runs the scorer, saves the dashboard + recommendations into the same folder
+6. Review the dashboard, then say "proceed" to trigger the CV generator
+7. Claude reads the JD + recommendations from the folder and saves the tailored CV alongside them
+
+**Shortcut options:**
+- **Score only:** "Score this JD, don't generate a CV yet"
+- **Skip scoring:** "Generate a CV for this JD, skip the scoring step"
 
 ---
 
