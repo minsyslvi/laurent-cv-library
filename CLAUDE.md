@@ -21,11 +21,11 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 ## Deliverables
 
-| File | Purpose |
-|---|---|
-| `SKILL.md` | The instruction set Claude reads before generating a CV. Contains trigger conditions, strategic logic, template structure, output spec, and execution checklist. |
-| `template.html` | The validated HTML/CSS template (v8). Claude copies this structure and injects tailored content — it does NOT regenerate CSS from scratch. |
-| `CLAUDE.md` | This file. Context log for new conversations. |
+| File | Location | Purpose |
+|---|---|---|
+| `SKILL.md` | `.agents/skills/cv-generator/SKILL.md` | The instruction set Claude reads before generating a CV. Contains trigger conditions, strategic logic, template structure, output spec, and execution checklist. |
+| `template.html` | `.agents/skills/cv-generator/template.html` | The validated HTML/CSS template (v8). Claude copies this structure and injects tailored content — it does NOT regenerate CSS from scratch. |
+| `CLAUDE.md` | `/CLAUDE.md` (root of workspace) | This file. Context log for new conversations. |
 
 ---
 
@@ -94,12 +94,26 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 ---
 
+## File Structure
+
+```
+/Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/
+├── CLAUDE.md                                    (this file)
+└── .agents/
+    └── skills/
+        └── cv-generator/
+            ├── SKILL.md                         (skill instructions for Claude)
+            └── template.html                    (v8 HTML/CSS template)
+```
+
+---
+
 ## How to use in a new conversation
 
-1. Place `SKILL.md`, `template.html`, and this `CLAUDE.md` in your project folder
-2. Start a new Claude conversation with these files as context
+1. Ensure `SKILL.md` and `template.html` are in `.agents/skills/cv-generator/`
+2. Start a new Claude conversation with this workspace as context
 3. Paste a job description and say something like: "Create a CV for this JD"
-4. Claude will follow the SKILL.md workflow: fetch your website, analyze the JD, ask about entrepreneurial track, generate the tailored HTML CV
+4. Claude will automatically locate SKILL.md, follow the workflow: fetch your website, analyze the JD, ask about entrepreneurial track, generate the tailored HTML CV
 
 ---
 
