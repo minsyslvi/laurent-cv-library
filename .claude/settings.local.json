@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:laurent.vincentelli.pro)",
+      "Bash(curl -s \"https://laurent.vincentelli.pro/\" -H \"User-Agent: Mozilla/5.0\")"
+    ]
+  }
+}

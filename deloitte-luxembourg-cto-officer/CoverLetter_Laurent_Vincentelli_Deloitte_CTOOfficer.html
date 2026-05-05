@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Letter — Laurent Vincentelli — CTO Office Technical Advisor · Deloitte</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --page-w: 210mm;
+    --page-h: 297mm;
+    --ink: #1a1a2e;
+    --accent: #0f3460;
+    --highlight: #c2185b;
+    --muted: #5a6275;
+    --border: #d0d7e3;
+    --bg: #ffffff;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+  }
+
+  html { font-size: 11.5px; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink);
+    background: #d5d5d5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    overflow: hidden;
+    background: var(--bg);
+    margin: 8mm auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    position: relative;
+    padding: 10mm 12mm 8mm 12mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  /* Header */
+  .cl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 5mm;
+    border-bottom: 2.5px solid var(--accent);
+    margin-bottom: 6mm;
+  }
+
+  .cl-header-left h1 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.05;
+    letter-spacing: -.03em;
+  }
+
+  .cl-header-left .cl-tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--highlight);
+    margin-top: 1mm;
+  }
+
+  .cl-header-left .cl-current {
+    margin-top: 2mm;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .cl-header-left .cl-current .cl-bg {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: .8rem;
+  }
+
+  .cl-header-right {
+    text-align: right;
+    font-size: .85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .cl-header-right a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  /* Letter meta */
+  .cl-meta {
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 5mm;
+    line-height: 1.6;
+  }
+
+  .cl-meta .cl-date {
+    margin-bottom: 3mm;
+  }
+
+  .cl-meta .cl-addressee {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Letter body */
+  .cl-body {
+    flex: 1;
+    font-size: .95rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  .cl-body p {
+    margin-bottom: 3.5mm;
+  }
+
+  .cl-body .cl-greeting {
+    font-weight: 600;
+    margin-bottom: 4mm;
+  }
+
+  .cl-body .cl-closing-line {
+    margin-top: 4mm;
+    margin-bottom: 1mm;
+  }
+
+  .cl-signature {
+    margin-top: 4mm;
+  }
+
+  .cl-signature .cl-sig-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .cl-signature .cl-sig-title {
+    font-size: .85rem;
+    color: var(--muted);
+    margin-top: .5mm;
+  }
+
+  /* Checklist */
+  .cl-checklist {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2mm;
+    margin-bottom: 3.5mm;
+  }
+
+  .cl-checklist li {
+    position: relative;
+    padding-left: 7mm;
+    margin-bottom: 2.5mm;
+    line-height: 1.6;
+    font-size: .95rem;
+  }
+
+  .cl-checklist li::before {
+    content: '☑';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .cl-footer {
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: 1px solid var(--border);
+    font-size: .78rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="cl-header">
+    <div class="cl-header-left">
+      <h1>Laurent Vincentelli</h1>
+      <div class="cl-tagline">Senior Technology Advisor — Cloud, Platform &amp; Secure Software Engineering</div>
+      <div class="cl-current">
+        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+        <span class="cl-bg">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+      </div>
+    </div>
+    <div class="cl-header-right">
+      <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a><br>
+      <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a><br>
+      <a href="https://laurent.vincentelli.pro">laurent.vincentelli.pro</a>
+    </div>
+  </div>
+
+  <!-- Meta -->
+  <div class="cl-meta">
+    <div class="cl-date">6 May 2026</div>
+    <div class="cl-addressee">
+      Deloitte Luxembourg<br>
+      CTO Office, Hiring Manager
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="cl-body">
+
+    <p class="cl-greeting">Dear Hiring Manager,</p>
+
+    <p>I am writing to express my interest in the <strong>CTO Office Technical Advisor</strong> position at Deloitte Luxembourg. With 15+ years of hands-on experience architecting enterprise-scale cloud, platform, and secure software solutions across IBM, Accenture, Capgemini, and Deloitte, I bring the advisory depth to translate technical credibility into actionable guidance for CTO-level stakeholders.</p>
+
+    <p>The mandate you describe: accelerating technical maturity, monitoring emerging technologies, unblocking cross-functional teams, and shaping the technology roadmap, is precisely what I have delivered throughout my career at IBM, Accenture, and Deloitte for clients across Financial Services, Insurance, Telecom, and Energy &amp; Utilities. The difference here is scope: advising internally, from within the CTO Office, rather than externally as a consultant. That shift is one I find compelling.</p>
+
+    <p>Three aspects of my track record are directly relevant to this role:</p>
+    <ul class="cl-checklist">
+      <li><strong>Cloud and container architecture at scale:</strong> I have designed and advised on Kubernetes-native, multi-cloud platforms across AWS, GCP, Azure, and IBM Cloud, including sovereign hybrid patterns for regulated environments and GDPR-compliant architectures.</li>
+      <li><strong>Secure software engineering and DevOps:</strong> from embedding DevSecOps practices and zero-trust security into CI/CD pipelines, to clearing 140+ regulatory controls with zero findings on a major insurtech programme, I bring the applied cybersecurity and software quality mindset the CTO Office needs.</li>
+      <li><strong>Cross-team unblocking:</strong> whether reducing environment provisioning from 18 days to 4 hours for 500+ engineers at a major telco, or designing the missing AI platform layers that transformed a global conglomerate's raw GPU infrastructure into a self-service marketplace, my engagements consistently centre on diagnosing architectural bottlenecks and providing actionable solutions that restore engineering velocity.</li>
+    </ul>
+
+    <p>I am fluent in English and French, hold Lean Six Sigma Black Belt and Scrum certifications (PSM, PSPO, Kanban), and am a TOGAF and SAFe practitioner. Throughout my career, I have spent significant time communicating complex architectural recommendations to both technical teams and non-technical senior leadership, a balance the JD rightly emphasises.</p>
+
+    <p>I would welcome the opportunity to discuss how my experience can support the CTO Office's mission. I am available at your convenience for a conversation.</p>
+
+    <p class="cl-closing-line">Yours sincerely,</p>
+
+    <div class="cl-signature">
+      <div class="cl-sig-name">Laurent Vincentelli</div>
+      <div class="cl-sig-title">Senior Technology Advisor, Cloud, Platform &amp; Secure Software Engineering</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="cl-footer">
+    laurent@vincentelli.pro · linkedin.com/in/laurentvincentelli · laurent.vincentelli.pro
+  </div>
+
+</div>
+
+</body>
+</html>
