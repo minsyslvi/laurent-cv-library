@@ -11,11 +11,13 @@ It summarizes the design decisions, iterations, and final deliverables from the 
 
 Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to **industrialize** the creation of a perfectly tailored CV + optional cover letter for each application.
 
-**Workflow:**
+**Workflow (two-skill pipeline):**
 1. Laurent finds a job description on a platform
 2. He pastes the JD into a Claude conversation
-3. Claude reads the SKILL.md, fetches laurent.vincentelli.pro (live, single source of truth), analyzes the JD, and produces a tailored 2-page HTML CV
-4. Laurent exports to PDF or Google Docs/DOCX for submission
+3. **Skill 1 — JD Match Scorer** runs first: fetches laurent.vincentelli.pro, scores the JD against Laurent's profile across 6 weighted dimensions, produces an HTML dashboard + a tailoring recommendations file
+4. Laurent reviews the match report and decides go/no-go
+5. **Skill 2 — CV Generator** runs next: takes the JD + recommendations file as input, generates a tailored 2-page HTML CV. The recommendations drive content emphasis, ordering, and augmentation — the CV generator may add or reframe content beyond the website to maximize interview conversion
+6. Laurent exports to PDF or Google Docs/DOCX for submission
 
 ---
 
@@ -23,7 +25,9 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 | File | Location | Purpose |
 |---|---|---|
-| `SKILL.md` | `.agents/skills/cv-generator/SKILL.md` | The instruction set Claude reads before generating a CV. Contains trigger conditions, strategic logic, template structure, output spec, and execution checklist. |
+| `SKILL.md` | `.agents/skills/jd-match-scorer/SKILL.md` | **Skill 1.** Scores the JD against Laurent's profile using a 6-dimension weighted algorithm. Produces an HTML dashboard + recommendations file. |
+| `template.html` | `.agents/skills/jd-match-scorer/template.html` | The HTML/CSS template for the match score dashboard (utilitarian, data-oriented). |
+| `SKILL.md` | `.agents/skills/cv-generator/SKILL.md` | **Skill 2.** Generates a tailored 2-page HTML CV from the JD + recommendations. May augment content beyond the website to maximize interview conversion. |
 | `template.html` | `.agents/skills/cv-generator/template.html` | The validated HTML/CSS template (v8). Claude copies this structure and injects tailored content — it does NOT regenerate CSS from scratch. |
 | `CLAUDE.md` | `/CLAUDE.md` (root of workspace) | This file. Context log for new conversations. |
 
@@ -101,8 +105,11 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 ├── CLAUDE.md                                    (this file)
 └── .agents/
     └── skills/
-        └── cv-generator/
-            ├── SKILL.md                         (skill instructions for Claude)
+        ├── jd-match-scorer/                     (Skill 1 — runs first)
+        │   ├── SKILL.md                         (scoring algorithm + instructions)
+        │   └── template.html                    (dashboard template)
+        └── cv-generator/                        (Skill 2 — runs after go/no-go)
+            ├── SKILL.md                         (CV generation instructions)
             └── template.html                    (v8 HTML/CSS template)
 ```
 
@@ -110,10 +117,11 @@ Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to *
 
 ## How to use in a new conversation
 
-1. Ensure `SKILL.md` and `template.html` are in `.agents/skills/cv-generator/`
-2. Start a new Claude conversation with this workspace as context
-3. Paste a job description and say something like: "Create a CV for this JD"
-4. Claude will automatically locate SKILL.md, follow the workflow: fetch your website, analyze the JD, ask about entrepreneurial track, generate the tailored HTML CV
+1. Start a new Claude conversation with this workspace as context
+2. Paste a job description
+3. **Option A — Full pipeline:** Say "score this JD" or "analyze this job" → Claude runs the JD Match Scorer, presents the dashboard, waits for go/no-go, then generates the CV using the recommendations
+4. **Option B — Direct CV:** Say "create a CV for this JD, skip scoring" → Claude skips the match scorer and generates the CV directly (original workflow)
+5. **Option C — Score only:** Say "just score this, don't generate a CV" → Claude produces only the match dashboard
 
 ---
 
