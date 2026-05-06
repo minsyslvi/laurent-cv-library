@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent Vincentelli — Digital Factory Engineering Manager · EY Luxembourg</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --page-w: 210mm;
+            --page-h: 297mm;
+            --ink: #1a1a2e;
+            --accent: #ffe600;
+            /* EY Yellow */
+            --accent-dark: #2e2e38;
+            /* EY Dark Grey */
+            --tag-bg: #f2f2f6;
+            --tag-border: #d0d0d5;
+            --tag-text: #2e2e38;
+            --highlight: #747480;
+            --muted: #5a6275;
+            --border: #d0d7e3;
+            --bg: #ffffff;
+            --card-bg: #ffffff;
+            --card-border: #e0e0e0;
+            --section-bg: #f7f9fc;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            font-size: 11.5px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.45;
+            color: var(--ink);
+            background: #d5d5d5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: var(--page-w);
+            height: var(--page-h);
+            overflow: hidden;
+            background: var(--bg);
+            margin: 8mm auto;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .12);
+            position: relative;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+
+        /* ══════════════════════════════════════════
+     PAGE 1
+     ══════════════════════════════════════════ */
+
+        .p1 {
+            padding: 7mm 8mm 5mm 8mm;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* ── 0) Title / Header ─────────────────── */
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 2mm;
+            margin-bottom: 2.5mm;
+        }
+
+        .title-left h1 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            line-height: 1.05;
+            letter-spacing: -.03em;
+        }
+
+        .title-left .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--highlight);
+            margin-top: 1mm;
+        }
+
+        .title-left .contact-line {
+            margin-top: 1.5mm;
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        .title-left .contact-line a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .title-left .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .title-left .current-role {
+            margin-top: 2.5mm;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .title-left .current-role .background {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .title-right {
+            text-align: right;
+            font-size: .82rem;
+            line-height: 1.55;
+            color: var(--ink);
+            min-width: 52mm;
+        }
+
+        .title-right .tr-heading {
+            font-weight: 700;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--accent-dark);
+            margin-top: 2mm;
+        }
+
+        .title-right .tr-heading:first-child {
+            margin-top: 0;
+        }
+
+        .title-right .tr-item {
+            color: var(--muted);
+            font-size: .8rem;
+        }
+
+        /* ── 1) Profile Highlights ─────────────── */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            border-bottom: 1.5px solid var(--accent);
+            padding-bottom: 0.8mm;
+            margin-bottom: 1.8mm;
+            margin-top: 2mm;
+        }
+
+        .profile-text {
+            font-size: .92rem;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        .profile-text .lead {
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .profile-bullets {
+            margin-top: 0.8mm;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .profile-bullets li {
+            font-size: .88rem;
+            line-height: 1.35;
+            margin-bottom: 0.6mm;
+            padding-left: 4mm;
+            position: relative;
+        }
+
+        .profile-bullets li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .profile-bullets li strong {
+            color: var(--accent-dark);
+        }
+
+        /* ── 2) Achievements — Dashboard Cards (60/40) ── */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2mm;
+        }
+
+        .ach-card {
+            border: 1.5px solid var(--card-border);
+            border-radius: 6px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+        }
+
+        .ach-left {
+            padding: 2mm 3mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ach-title {
+            font-weight: 700;
+            font-size: .84rem;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .ach-ctx {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: .74rem;
+        }
+
+        .ach-body {
+            font-size: .74rem;
+            line-height: 1.35;
+            color: #444;
+            margin-top: .8mm;
+        }
+
+        .ach-right {
+            background: var(--accent-dark);
+            padding: 2mm 2.5mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .5mm;
+        }
+
+        .ach-sizing {
+            font-size: .68rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: .02em;
+            padding-bottom: 1mm;
+            border-bottom: 1px solid rgba(255, 255, 255, .15);
+            margin-bottom: .5mm;
+        }
+
+        .ach-metrics-label {
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .6);
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-bottom: .3mm;
+        }
+
+        .kpi-item {
+            line-height: 1.3;
+            margin-bottom: .3mm;
+            color: #fff;
+        }
+
+        .kpi-value {
+            font-size: .78rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .kpi-label {
+            font-size: .66rem;
+            font-weight: 400;
+            color: #fff;
+            margin-left: .5mm;
+        }
+
+        /* ── 3) Hard Skills Cards ──────────────── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5mm;
+        }
+
+        .skills-grid.single-row {
+            grid-template-columns: 1fr;
+        }
+
+        .skill-card {
+            border: 1.5px solid var(--card-border);
+            border-radius: 6px;
+            padding: 1.8mm 2.5mm;
+            background: var(--card-bg);
+        }
+
+        .skill-card h4 {
+            font-family: var(--font-display);
+            font-size: .92rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.6mm;
+            line-height: 1.2;
+        }
+
+        .skill-card p {
+            font-size: .80rem;
+            line-height: 1.3;
+            color: var(--muted);
+            margin-bottom: 1mm;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--tag-text);
+            font-size: .75rem;
+            font-weight: 500;
+            padding: .7px 3.5px;
+            border-radius: 3px;
+            line-height: 1.4;
+        }
+
+        /* ══════════════════════════════════════════
+     PAGE 2
+     ══════════════════════════════════════════ */
+
+        .p2 {
+            padding: 7mm 8mm 5mm 8mm;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Title block — repeated from page 1 */
+        .p2-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 3mm;
+            border-bottom: 2.5px solid var(--accent);
+            margin-bottom: 5mm;
+        }
+
+        .p2-title-left h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            line-height: 1.05;
+            letter-spacing: -.02em;
+        }
+
+        .p2-title-left .p2-tagline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--highlight);
+            margin-top: 1mm;
+        }
+
+        .p2-title-left .p2-current-role {
+            margin-top: 1.5mm;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .p2-title-left .p2-current-role .p2-background {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .p2-title-right {
+            text-align: right;
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .p2-title-right a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .p2-section-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: 4mm;
+        }
+
+        /* Vertical timeline layout — 3/8 timeline, 5/8 text */
+        .vtl-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            padding-left: 28mm;
+        }
+
+        /* Vertical line */
+        .vtl-container::before {
+            content: '';
+            position: absolute;
+            left: 20mm;
+            top: 1mm;
+            bottom: 6mm;
+            width: 2.5px;
+            background: linear-gradient(to bottom, var(--accent-dark), var(--border));
+            border-radius: 2px;
+        }
+
+        .vtl-block {
+            position: relative;
+            padding-bottom: 1mm;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vtl-block:last-child {
+            padding-bottom: 0;
+        }
+
+        /* Dot on the vertical line */
+        .vtl-block::before {
+            content: '';
+            position: absolute;
+            left: -8.5mm;
+            top: 1mm;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent-dark);
+            border: 2.5px solid #fff;
+            box-shadow: 0 0 0 1.5px var(--accent-dark);
+            z-index: 1;
+        }
+
+        .vtl-block.current::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent);
+            width: 11px;
+            height: 11px;
+            left: -9.5mm;
+        }
+
+        /* Year label — positioned left of the line */
+        .vtl-year {
+            position: absolute;
+            left: -28mm;
+            top: 0;
+            width: 18mm;
+            text-align: right;
+            font-size: 1.05rem;
+            color: var(--ink);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .vtl-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .vtl-role {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--ink);
+        }
+
+        .vtl-org {
+            font-weight: 600;
+            color: var(--accent-dark);
+            font-size: 1.25rem;
+        }
+
+        .vtl-period-right {
+            font-size: .8rem;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .vtl-body {
+            font-size: .86rem;
+            line-height: 1.42;
+            color: #333;
+            margin-top: 1mm;
+            flex: 1;
+        }
+
+        .vtl-body ul {
+            padding-left: 4mm;
+            margin-top: .8mm;
+        }
+
+        .vtl-body li {
+            margin-bottom: .8mm;
+            list-style-type: '—  ';
+        }
+
+        .vtl-body li::marker {
+            color: var(--accent-dark);
+        }
+
+        .p2-footer {
+            margin-top: auto;
+            font-size: .78rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            padding-top: 2mm;
+            text-align: center;
+        }
+
+        /* ══════════════════════════════════════════
+     PAGE 3
+     ══════════════════════════════════════════ */
+
+        .p3 {
+            padding: 7mm 8mm 5mm 8mm;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .ach-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 3mm;
+            flex: 1;
+        }
+
+        .ach-stack .ach-card {
+            flex: 1;
+        }
+
+        .ach-stack .ach-left {
+            padding: 3.5mm 5mm;
+        }
+
+        .ach-stack .ach-title {
+            font-size: .96rem;
+        }
+
+        .ach-stack .ach-ctx {
+            font-size: .82rem;
+        }
+
+        .ach-stack .ach-body {
+            font-size: .84rem;
+            line-height: 1.45;
+            margin-top: 1.5mm;
+        }
+
+        .ach-stack .ach-right {
+            padding: 3.5mm 4mm;
+            gap: 1mm;
+        }
+
+        .ach-stack .ach-sizing {
+            font-size: .78rem;
+            padding-bottom: 1.5mm;
+            margin-bottom: 1mm;
+        }
+
+        .ach-stack .ach-metrics-label {
+            font-size: .68rem;
+            margin-bottom: .5mm;
+        }
+
+        .ach-stack .kpi-value {
+            font-size: .88rem;
+        }
+
+        .ach-stack .kpi-label {
+            font-size: .74rem;
+        }
+
+        .ach-stack .kpi-item {
+            margin-bottom: .5mm;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="p1">
+
+            <div class="title-bar">
+                <div class="title-left">
+                    <h1>Laurent Vincentelli</h1>
+                    <div class="tagline">Digital Factory Engineering Manager — Platform Delivery, FSI Regulatory Mastery
+                        &amp; Azure-Native</div>
+                    <div class="contact-line">
+                        <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a> ·
+                        <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+                    </div>
+                    <div class="current-role">
+                        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+                        <span class="background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+                    </div>
+                </div>
+                <div class="title-right">
+                    <div class="tr-heading">Certifications</div>
+                    <div class="tr-item">Azure DevOps Engineer Expert</div>
+                    <div class="tr-item">Scrum (PSM · PSPO · Kanban)</div>
+                    <div class="tr-item">Lean Six Sigma Black Belt</div>
+                    <div class="tr-heading">Languages</div>
+                    <div class="tr-item">English (fluent) · French (native)</div>
+                    <div class="tr-item">Spanish (professional proficiency)</div>
+                </div>
+            </div>
+
+            <div class="section-title">Profile Highlights</div>
+            <div class="profile-text">
+                <span class="lead">I have spent 15+ years building, leading, and scaling cross-functional engineering
+                    teams (Azure Cloud, .NET/Python Backend, Data) to industrialize digital delivery. I bridge the gap
+                    between high-velocity product engineering and the strict regulatory governance required in global
+                    FSI hubs.</span>
+            </div>
+            <ul class="profile-bullets">
+                <li><strong>The pattern:</strong> Organisations stuck in "Proof of Concept fatigue" with disjointed
+                    silos, manual advisory workflows, and architecture that fails strict financial compliance audits
+                    (e.g., CSSF/PSF), eroding velocity and trust.</li>
+                <li><strong>The approach:</strong> Lead the pivot to an industrialized "Digital Factory" model. Align
+                    cross-functional squads across cloud infrastructure, APIs, and data engineering. Embed DevSecOps,
+                    Azure Bicep/Terraform automation, and Data-Driven Audit foundations to make fast delivery
+                    intrinsically safe and compliant.</li>
+                <li><strong>The result:</strong> Platform-led engineering teams driven by DORA and SPACE metrics. Moving
+                    from reactive firefighting to predictable, audit-ready product execution that ships business value
+                    predictably without violating strict local FSI regulations.</li>
+            </ul>
+
+            <div class="section-title">Hard Skills — Technologies &amp; Delivery Flow</div>
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h4>Software Engineering &amp; Measurement</h4>
+                    <p>Embeds the culture and tooling that makes fast delivery safe by default: CI/CD pipelines,
+                        trunk-based development, and automated quality gates. Relies pragmatically on DORA and SPACE
+                        metrics to guide coaching and process refinement, moving teams from siloed handoffs to a
+                        continuous flow of secure, observable releases.</p>
+                    <div class="tags">
+                        <span class="tag">DORA & SPACE Metrics</span>
+                        <span class="tag">CI/CD (Azure DevOps)</span>
+                        <span class="tag">Trunk-based Dev</span>
+                        <span class="tag">DevSecOps</span>
+                        <span class="tag">Automated Testing</span>
+                        <span class="tag">SLOs & Error Budgets</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Microsoft Azure &amp; Cloud Architecture</h4>
+                    <p>Architects cloud foundations focused on Microsoft Azure—from greenfield cloud-native builds (AKS,
+                        Azure Functions) to Sovereign Cloud patterns for regulated industries. Guides engineering teams
+                        on cost-efficient FinOps strategies and Infrastructure as Code (Bicep/Terraform) choices aligned
+                        to strict CSSF/PSF compliance frameworks.</p>
+                    <div class="tags">
+                        <span class="tag">Azure (AKS, App Services)</span>
+                        <span class="tag">FinOps / Cost Mgmt</span>
+                        <span class="tag">CSSF/PSF Compliance</span>
+                        <span class="tag">Bicep / Terraform</span>
+                        <span class="tag">Azure Key Vault / AD</span>
+                        <span class="tag">Audit-Ready Infra</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Backend, API &amp; Data Engineering</h4>
+                    <p>Technical stewardship over modern architectures: promoting Domain-Driven Design (DDD) in .NET/C#
+                        and Python, event-driven scaling (Kafka, Azure Service Bus), and designing robust Data
+                        Lakehouses. Ensures complex financial data is transformed into structured formats to power
+                        Data-Driven Audit & Assurance use cases.</p>
+                    <div class="tags">
+                        <span class="tag">.NET / C# / Python</span>
+                        <span class="tag">Domain-Driven Design</span>
+                        <span class="tag">Kafka / Service Bus</span>
+                        <span class="tag">Data Lakehouse / Spark</span>
+                        <span class="tag">Microservices</span>
+                        <span class="tag">Observability</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Platform Delivery &amp; Reusability</h4>
+                    <p>Turns Digital Factories from IT cost centres into business-velocity engines. Partners with
+                        Product to refine scope and budgets. Promotes enterprise reuse via shared libraries and
+                        templates. Selects the right framework (Agile, SAFe, Team Topologies) to orchestrate
+                        cross-functional collaboration across multi-vendor or offshore matrix environments.</p>
+                    <div class="tags">
+                        <span class="tag">Agile / Scrum / Kanban</span>
+                        <span class="tag">Team Topologies</span>
+                        <span class="tag">Roadmap & Lean Budget</span>
+                        <span class="tag">SAFe</span>
+                        <span class="tag">Shared Component Libraries</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Soft Skills — Leadership &amp; Outcomes</div>
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h4>Cross-Functional Team Leadership</h4>
+                    <p>Builds, mentors, and retains high-performing engineering teams across backend, frontend, and data
+                        domains. Sets clear goals, conducts growth-oriented performance conversations, and creates
+                        individualized development plans that raise the bar on engineering excellence and code
+                        maintainability.</p>
+                    <div class="tags">
+                        <span class="tag">People Leadership</span>
+                        <span class="tag">Mentoring & Coaching</span>
+                        <span class="tag">Performance Mgmt</span>
+                        <span class="tag">Engineering Excellence</span>
+                        <span class="tag">Agile Rituals</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Stakeholder Alignment &amp; Risk Translation</h4>
+                    <p>Creates strong collaboration patterns with Product, Architecture, Security, and Data
+                        stakeholders. Translates "Technical Debt" or infrastructure refactoring into actionable
+                        "Business Risk" language for Partners and C-suite, ensuring engineering is visible, trusted, and
+                        credible in governance forums.</p>
+                    <div class="tags">
+                        <span class="tag">Business & IT Bridging</span>
+                        <span class="tag">Technical Storytelling</span>
+                        <span class="tag">Security & Compliance</span>
+                        <span class="tag">Governance Forums</span>
+                        <span class="tag">Executive Presence</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="page">
+        <div class="p2">
+
+            <div class="p2-title-bar">
+                <div class="p2-title-left">
+                    <h2>Laurent Vincentelli</h2>
+                    <div class="p2-tagline">Digital Factory Engineering Manager — Platform Delivery, FSI Regulatory
+                        Mastery &amp; Azure-Native</div>
+                    <div class="p2-current-role">
+                        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+                        <span class="p2-background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+                    </div>
+                </div>
+                <div class="p2-title-right">
+                    <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a><br>
+                    <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+                </div>
+            </div>
+
+            <div class="p2-section-title">Professional Experience</div>
+
+            <div class="vtl-container">
+
+                <div class="vtl-block current">
+                    <div class="vtl-year">2023 —<br>Now</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Engagement Manager</span> · <span class="vtl-org">Deloitte,
+                                Technology &amp; Transformation</span></div>
+                    </div>
+                    <div class="vtl-body">
+                        Leading engineering-focused engagements across Financial Services, Insurance, and Telecom —
+                        driving delivery of Digital &amp; AI platform programmes and coaching cross-functional
+                        engineering teams on technical stewardship, CI/CD adoption, and cloud-native architecture.
+                        <ul>
+                            <li>Lead cross-functional engineering, security, DevOps, and data teams — diagnosing
+                                architectural gaps, removing delivery impediments, and restoring predictable release
+                                cadence using DORA metrics</li>
+                            <li>Own engineering delivery outcomes: plan releases, sequence work, establish execution
+                                rituals (planning, reviews, retrospectives), and provide transparent status
+                                communication to executive stakeholders</li>
+                            <li>Uphold engineering standards for secure, scalable systems — championing code reviews,
+                                automated testing, Azure cloud adoption, and FSI regulatory compliance across
+                                multi-squad programmes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2019 —<br>2023</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Senior Manager</span> · <span class="vtl-org">IBM Consulting</span>
+                        </div>
+                    </div>
+                    <div class="vtl-body">
+                        Led and managed engineering teams delivering Platform-as-a-Service solutions across Payments,
+                        Capital Markets, and Telecom. Managed direct reports across backend (.NET/Python), API, and data
+                        engineering disciplines.
+                        <ul>
+                            <li>Built and retained high-performing engineering squads delivering multi-cloud API &amp;
+                                Data platforms to 200+ internal and external consumers in regulated environments</li>
+                            <li>Owned delivery outcomes — planned releases, sequenced engineering work, resolved
+                                blockers with global delivery centres, and provided clear progress communication to
+                                C-suite sponsors</li>
+                            <li>Shaped the platform-as-a-product operating model and introduced SPACE-aligned
+                                productivity frameworks across the EMEA engineering practice</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2018 —<br>2019</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Manager</span> · <span class="vtl-org">Accenture</span></div>
+                    </div>
+                    <div class="vtl-body">
+                        Engineering Manager for a major retailer's "Software Factory" platform programme — directly
+                        responsible for a cross-functional squad of 12 engineers across backend, platform, and DevOps
+                        disciplines serving 300+ developers.
+                        <ul>
+                            <li>Led team through full delivery lifecycle: hiring, onboarding, individualized development
+                                plans, performance conversations, and engineering excellence coaching</li>
+                            <li>Applied Team Topologies re-organisation — aligning engineering, security, and product
+                                teams around a shared infrastructure vision, drastically reducing Lead Time for Changes
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2017 —<br>2018</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Cloud Solutions Architect</span> · <span
+                                class="vtl-org">OVHcloud</span></div>
+                    </div>
+                    <div class="vtl-body">
+                        Designed GDPR-compliant sovereign cloud architecture patterns for regulated financial and
+                        public-sector clients. Led the technical definition of hybrid cloud reference architectures and
+                        guided engineering teams through secure, audit-ready cloud platform adoption.
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2015 —<br>2016</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Senior Managing Consultant</span> · <span class="vtl-org">Capgemini
+                                — Defence &amp; Space</span></div>
+                    </div>
+                    <div class="vtl-body">
+                        Co-led a PaaS platform programme for a mission-critical embedded systems project in a classified
+                        environment — engineering a zero-defect CI/CD pipeline with full traceability, automated quality
+                        gates, and secure software delivery controls.
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2011 —<br>2015</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Senior Consultant</span> · <span class="vtl-org">Cognizant</span>
+                        </div>
+                    </div>
+                    <div class="vtl-body">
+                        Co-built and managed pan-European cloud platforms for Banking and Telecoms clients. Introduced
+                        Agile, DevOps, and SRE practices across legacy transformation programmes integrating nearshore
+                        and offshore delivery models.
+                    </div>
+                </div>
+
+                <div class="vtl-block">
+                    <div class="vtl-year">2008 —<br>2011</div>
+                    <div class="vtl-header">
+                        <div><span class="vtl-role">Head of Cloud Engineering</span> · <span class="vtl-org">GreenSaaS →
+                                Fiducial Cloud</span></div>
+                    </div>
+                    <div class="vtl-body">
+                        Founded and led the engineering team at one of France's first SaaS / cloud platform providers —
+                        designed and built multi-tenant infrastructure from the ground up. Acquired by Fiducial Group.
+                    </div>
+                </div>
+
+            </div>
+            <div class="p2-footer">
+                Full engagement portfolio, references, and case-study deep-dives available on request ·
+                <strong>laurent.vincentelli.pro</strong>
+            </div>
+
+        </div>
+    </div>
+    <div class="page">
+        <div class="p3">
+
+            <div class="p2-title-bar">
+                <div class="p2-title-left">
+                    <h2>Laurent Vincentelli</h2>
+                    <div class="p2-tagline">Digital Factory Engineering Manager — Platform Delivery, FSI Regulatory
+                        Mastery &amp; Azure-Native</div>
+                    <div class="p2-current-role">
+                        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+                        <span class="p2-background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+                    </div>
+                </div>
+                <div class="p2-title-right">
+                    <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a><br>
+                    <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+                </div>
+            </div>
+
+            <div class="p2-section-title">Achievements — Selected Engagements</div>
+
+            <div class="ach-stack">
+
+                <div class="ach-card">
+                    <div class="ach-left">
+                        <div class="ach-title">The Software Factory</div>
+                        <div class="ach-ctx">Major EMEA Telecom — Industrialised Platform Delivery</div>
+                        <div class="ach-body">Led a cross-functional engineering squad (backend, platform, DevOps)
+                            delivering a self-service Software Factory for 500+ engineers. Applied Team Topologies to
+                            restructure team interactions, eliminated critical provisioning bottlenecks through
+                            automated quality gates (Azure DevOps), and embedded a craftsmanship culture with regular
+                            code reviews and blameless retrospectives. This shift moved the organisation to a
+                            metrics-driven culture, dramatically accelerating Time-To-Market (TTM) for new digital
+                            products.</div>
+                    </div>
+                    <div class="ach-right">
+                        <div class="ach-sizing">10 months · $2.8M · 12-FTE</div>
+                        <div class="ach-metrics-label">Success Metrics</div>
+                        <div class="kpi-item"><span class="kpi-value">99.1%↓</span> <span class="kpi-label">Lead Time
+                                for Changes (DORA)</span></div>
+                        <div class="kpi-item"><span class="kpi-value">3×</span> <span class="kpi-label">Deployment
+                                Frequency (DORA)</span></div>
+                        <div class="kpi-item"><span class="kpi-value">4.5mo↓</span> <span class="kpi-label">Average
+                                Product TTM Accelerated</span></div>
+                        <div class="kpi-item"><span class="kpi-value">500+</span> <span class="kpi-label">Voluntary
+                                Adopters</span></div>
+                    </div>
+                </div>
+
+                <div class="ach-card">
+                    <div class="ach-left">
+                        <div class="ach-title">The AI &amp; Data Factory</div>
+                        <div class="ach-ctx">Global Conglomerate — Data-Driven Platform</div>
+                        <div class="ach-body">Led the engineering delivery of an Azure-based Data and AI delivery
+                            platform—coordinating multiple cross-functional squads across Python backend, data
+                            engineering (Lakehouse), and infrastructure disciplines. Established execution rituals,
+                            defined SLOs and error budget governance, and embedded FinOps controls. Transformed
+                            scattered data PoCs into an industrialized, automated data foundation that powers enterprise
+                            analytics with vastly improved developer satisfaction (SPACE framework).</div>
+                    </div>
+                    <div class="ach-right">
+                        <div class="ach-sizing">12 months · $3M · 14-FTE</div>
+                        <div class="ach-metrics-label">Success Metrics</div>
+                        <div class="kpi-item"><span class="kpi-value">98%↓</span> <span class="kpi-label">AI Service
+                                Provisioning Time</span></div>
+                        <div class="kpi-item"><span class="kpi-value">25%↓</span> <span class="kpi-label">Change Failure
+                                Rate (DORA)</span></div>
+                        <div class="kpi-item"><span class="kpi-value">100%</span> <span class="kpi-label">Self-service
+                                Marketplace Adoption</span></div>
+                    </div>
+                </div>
+
+                <div class="ach-card">
+                    <div class="ach-left">
+                        <div class="ach-title">Open Banking Platform</div>
+                        <div class="ach-ctx">Major EU Retail Bank — Fintech &amp; API Ecosystem</div>
+                        <div class="ach-body">Owned engineering delivery of an open banking API platform in a highly
+                            regulated FSI environment. Led .NET backend and integration squads through Event-Driven
+                            Architecture (Kafka) and automated testing to meet strict PSD2 local compliance
+                            requirements. Championed API-first engineering standards, established observability stacks,
+                            and coordinated alignment across security, compliance, and product teams to deliver the
+                            bank's largest-ever fintech partner cohort on day one.</div>
+                    </div>
+                    <div class="ach-right">
+                        <div class="ach-sizing">14 months · $4.2M · 18-FTE</div>
+                        <div class="ach-metrics-label">Success Metrics</div>
+                        <div class="kpi-item"><span class="kpi-value">90%↓</span> <span
+                                class="kpi-label">Time-to-First-API-Call</span></div>
+                        <div class="kpi-item"><span class="kpi-value">6mo↓</span> <span class="kpi-label">Partner TTM
+                                Accelerated</span></div>
+                        <div class="kpi-item"><span class="kpi-value">30+</span> <span class="kpi-label">Fintech
+                                Partners at Launch</span></div>
+                    </div>
+                </div>
+
+                <div class="ach-card">
+                    <div class="ach-left">
+                        <div class="ach-title">Insurance-as-a-Service Platform</div>
+                        <div class="ach-ctx">Tier-1 North American Carrier — Regulated Insurtech</div>
+                        <div class="ach-body">Led engineering delivery of a cloud-native insurance platform—managing a
+                            22-FTE cross-functional squad through architecture redesign, security hardening, and
+                            regulatory compliance mirroring CSSF/PSF strictness. Applied technical risk management early
+                            in the delivery lifecycle by embedding DevSecOps controls into the Terraform code, resulting
+                            in a continuously "Audit-Ready" infrastructure that cleared intense regulatory inspections
+                            with zero findings.</div>
+                    </div>
+                    <div class="ach-right">
+                        <div class="ach-sizing">18 months · $5M · 22-FTE</div>
+                        <div class="ach-metrics-label">Success Metrics</div>
+                        <div class="kpi-item"><span class="kpi-value">79%↓</span> <span class="kpi-label">Partner
+                                Onboarding (14 → 3 weeks)</span></div>
+                        <div class="kpi-item"><span class="kpi-value">4hrs</span> <span class="kpi-label">MTTR (Mean
+                                Time to Recovery)</span></div>
+                        <div class="kpi-item"><span class="kpi-value">140+</span> <span class="kpi-label">Regulatory
+                                Controls, 0 Findings</span></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="p2-footer">
+                Full engagement portfolio, references, and case-study deep-dives available on request ·
+                <strong>laurent.vincentelli.pro</strong>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
