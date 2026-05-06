@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laurent Vincentelli — CV</title>
+<title>Laurent Vincentelli — CTO Office Technical Advisor · Deloitte</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   @page {
@@ -37,7 +37,7 @@
     --font-body: 'DM Sans', 'Segoe UI', sans-serif;
   }
 
-  html { font-size: 10px; }
+  html { font-size: 11.5px; }
 
   body {
     font-family: var(--font-body);
@@ -333,78 +333,6 @@
   /* ── 4) Soft Skills Cards ──────────────── */
   /* reuses .skill-card / .tags / .tag */
 
-  /* ── 5) Career Timeline (horizontal) ──── */
-  .h-timeline-section {
-    margin-top: auto;
-    padding-top: 2mm;
-  }
-
-  .h-timeline {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    padding-top: 4mm;
-  }
-
-  .h-timeline::before {
-    content: '';
-    position: absolute;
-    top: 6.5mm;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--border);
-  }
-
-  .htl-item {
-    flex: 1;
-    position: relative;
-    text-align: center;
-    padding: 0 1mm;
-  }
-
-  .htl-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 1.5px var(--accent);
-    z-index: 1;
-  }
-
-  .htl-item.current::before {
-    background: var(--highlight);
-    box-shadow: 0 0 0 1.5px var(--highlight);
-  }
-
-  .htl-period {
-    margin-top: 5mm;
-    font-size: .65rem;
-    color: var(--muted);
-    line-height: 1.2;
-  }
-
-  .htl-role {
-    font-size: .68rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-top: .5mm;
-  }
-
-  .htl-org {
-    font-size: .63rem;
-    color: var(--muted);
-    line-height: 1.2;
-  }
-
-
   /* ══════════════════════════════════════════
      PAGE 2
      ══════════════════════════════════════════ */
@@ -600,6 +528,74 @@
     text-align: center;
   }
 
+  /* ══════════════════════════════════════════
+     PAGE 3
+     ══════════════════════════════════════════ */
+
+  .p3 {
+    padding: 7mm 8mm 5mm 8mm;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ach-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+    flex: 1;
+  }
+
+  .ach-stack .ach-card {
+    flex: 1;
+  }
+
+  .ach-stack .ach-left {
+    padding: 3.5mm 5mm;
+  }
+
+  .ach-stack .ach-title {
+    font-size: .96rem;
+  }
+
+  .ach-stack .ach-ctx {
+    font-size: .82rem;
+  }
+
+  .ach-stack .ach-body {
+    font-size: .84rem;
+    line-height: 1.45;
+    margin-top: 1.5mm;
+  }
+
+  .ach-stack .ach-right {
+    padding: 3.5mm 4mm;
+    gap: 1mm;
+  }
+
+  .ach-stack .ach-sizing {
+    font-size: .78rem;
+    padding-bottom: 1.5mm;
+    margin-bottom: 1mm;
+  }
+
+  .ach-stack .ach-metrics-label {
+    font-size: .68rem;
+    margin-bottom: .5mm;
+  }
+
+  .ach-stack .kpi-value {
+    font-size: .88rem;
+  }
+
+  .ach-stack .kpi-label {
+    font-size: .74rem;
+  }
+
+  .ach-stack .kpi-item {
+    margin-bottom: .5mm;
+  }
+
 </style>
 </head>
 <body>
@@ -614,13 +610,13 @@
   <div class="title-bar">
     <div class="title-left">
       <h1>Laurent Vincentelli</h1>
-      <div class="tagline">Technology Strategy & Digital Transformation Advisor</div>
+      <div class="tagline">Senior Technology Advisor — Cloud, Platform &amp; Secure Software Engineering</div>
       <div class="contact-line">
         <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a> ·
         <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
       </div>
       <div class="current-role">
-        Currently: Engagement Manager at Deloitte, Technology & Transformation<br>
+        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
         <span class="background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
       </div>
     </div>
@@ -638,133 +634,81 @@
   <!-- ── 1) Profile Highlights ─────────────── -->
   <div class="section-title">Profile Highlights</div>
   <div class="profile-text">
-    <span class="lead">I have spent 15+ years building and scaling the platform layer that sits between raw compute and the people who need to use it.</span>
+    <span class="lead">I have spent 15+ years architecting and advising on enterprise-scale technology strategies — advancing technical maturity for FSI, Telco, Energy, and Utilities organisations by continuously monitoring emerging technologies and translating them into actionable roadmaps.</span>
   </div>
   <ul class="profile-bullets">
-    <li><strong>The pattern:</strong> a brilliant multidisciplinary team with world-class infrastructure access — and a missing platform layer costing them velocity.</li>
-    <li><strong>The approach:</strong> Start with the customer, map the friction, systematically partner with stakeholders to secure funding/budget. Then hire talent, assemble the right team topology, lead the value streams that build the platform, ship with cadence, and scale (or pivot).</li>
-    <li><strong>The result:</strong> zero-friction vertical user experiences, translating on-premises and hyperscaler infrastructure into platforms that actually scale the business.</li>
+    <li><strong>The pattern:</strong> a brilliant multidisciplinary team with world-class infrastructure access — held back by architectural gaps and unresolved technical challenges costing them velocity, security posture, and competitive agility.</li>
+    <li><strong>The approach:</strong> start with the engineering and business problem, map the friction, align stakeholders across engineering, security, DevOps, and QA teams. Shape the technology roadmap, remove blockers, and embed the architecture and secure software practices that make fast delivery safe by default.</li>
+    <li><strong>The result:</strong> organisations that move from architectural debt to technical maturity — with zero-friction collaboration across disciplines, a governed cloud and containerisation foundation, and the secure software lifecycle to sustain it.</li>
   </ul>
 
-  <!-- ── 2) Achievements — Selected Engagements ── -->
-  <div class="section-title">Achievements — Selected Engagements</div>
-  <div class="achievements-grid">
-
-    <div class="ach-card">
-      <div class="ach-left">
-        <div class="ach-title">Insurance-as-a-Service Platform</div>
-        <div class="ach-ctx">Tier-1 NA Carrier</div>
-        <div class="ach-body">Advised CIO on rescuing a stalled hyperscaler investment. Reframed programme from infrastructure migration to API ecosystem strategy.</div>
-      </div>
-      <div class="ach-right">
-        <div class="ach-sizing">18 months · $5M · 22-FTE</div>
-        <div class="ach-metrics-label">Success Metrics</div>
-        <div class="kpi-item"><span class="kpi-value">79%↓</span> <span class="kpi-label">Partner Onboarding (14→3 wk)</span></div>
-        <div class="kpi-item"><span class="kpi-value">140+</span> <span class="kpi-label">Regulatory Controls, 0 Findings</span></div>
-      </div>
-    </div>
-
-    <div class="ach-card">
-      <div class="ach-left">
-        <div class="ach-title">The AI Factory</div>
-        <div class="ach-ctx">Global Conglomerate — Energy & Utilities</div>
-        <div class="ach-body">Designed the platform layers translating raw GPU infrastructure into a self-service AI marketplace with unified governance and FinOps.</div>
-      </div>
-      <div class="ach-right">
-        <div class="ach-sizing">12 months · $3M · 14-FTE</div>
-        <div class="ach-metrics-label">Success Metrics</div>
-        <div class="kpi-item"><span class="kpi-value">98%↓</span> <span class="kpi-label">AI Service Provisioning Time</span></div>
-      </div>
-    </div>
-
-    <div class="ach-card">
-      <div class="ach-left">
-        <div class="ach-title">Open Banking Platform</div>
-        <div class="ach-ctx">Major EU Retail Bank</div>
-        <div class="ach-body">Led strategy, build, and go-to-market of partner & developer portal for the bank's open banking proposition.</div>
-      </div>
-      <div class="ach-right">
-        <div class="ach-sizing">14 months · $4.2M · 18-FTE</div>
-        <div class="ach-metrics-label">Success Metrics</div>
-        <div class="kpi-item"><span class="kpi-value">90%↓</span> <span class="kpi-label">Time-to-First-API-Call</span></div>
-        <div class="kpi-item"><span class="kpi-value">30+</span> <span class="kpi-label">Fintech Partners on Day One</span></div>
-      </div>
-    </div>
-
-    <div class="ach-card">
-      <div class="ach-left">
-        <div class="ach-title">Internal Developer Platform</div>
-        <div class="ach-ctx">Major EMEA Telecom</div>
-        <div class="ach-body">Delivered self-service IDP for 300+ engineers. Advised CTO on platform-as-a-product operating model.</div>
-      </div>
-      <div class="ach-right">
-        <div class="ach-sizing">10 months · $2.8M · 12-FTE</div>
-        <div class="ach-metrics-label">Success Metrics</div>
-        <div class="kpi-item"><span class="kpi-value">99.1%↓</span> <span class="kpi-label">Provisioning (18d → 4h)</span></div>
-        <div class="kpi-item"><span class="kpi-value">$9M/yr</span> <span class="kpi-label">Productivity Recovered</span></div>
-        <div class="kpi-item"><span class="kpi-value">3×</span> <span class="kpi-label">Deployment Frequency</span></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── 3) Hard Skills ──────────────────── -->
-  <div class="section-title">Hard Skills — Technologies & Flow</div>
+  <!-- ── 3) Hard Skills — reordered per recommendations ── -->
+  <div class="section-title">Hard Skills — Technologies &amp; Flow</div>
   <div class="skills-grid">
+
+    <!-- 1st: Hybrid Cloud (cloud, Kubernetes, containers — JD primary emphasis) -->
     <div class="skill-card">
-      <h4>Digital & AI Platform as a Product</h4>
-      <p>Builds platforms the way great product teams build software with a roadmap, a backlog, and real customers. Turns Internal Developer Platforms and Enterprise AI hubs from IT cost centres into business-velocity engines.</p>
-      <div class="tags">
-        <span class="tag">Lean Budget</span>
-        <span class="tag">Roadmap & Backlog</span>
-        <span class="tag">Business Velocity</span>
-        <span class="tag">User Experience</span>
-        <span class="tag">Design Thinking</span>
-        <span class="tag">System Thinking</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h4>Extended Enterprise & Ecosystem Management</h4>
-      <p>Designs and operates the partner and developer layer that extends platform reach beyond the enterprise from API gateway architecture to ISV onboarding programmes that turn technology alliances into scalable, governed revenue channels.</p>
-      <div class="tags">
-        <span class="tag">API Gateway</span>
-        <span class="tag">ISV Onboarding</span>
-        <span class="tag">Partner Ecosystems</span>
-        <span class="tag">Developer Portals</span>
-        <span class="tag">Revenue Channels</span>
-        <span class="tag">Ecosystem Governance</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h4>Hybrid & Distributed Cloud (XaaS)</h4>
-      <p>Architects the cloud foundation across all major hyperscalers and on-prem, from greenfield cloud-native builds to sovereign and compliant hybrid patterns for regulated industries giving engineering teams the infrastructure runway to ship with confidence.</p>
+      <h4>Hybrid &amp; Distributed Cloud (XaaS)</h4>
+      <p>Architects the cloud foundation across all major hyperscalers and on-prem — from greenfield cloud-native and Kubernetes-native builds to sovereign hybrid patterns for regulated industries. Brings the infrastructure depth that CTO offices need to evaluate, select, and govern technology choices with confidence.</p>
       <div class="tags">
         <span class="tag">AWS</span>
         <span class="tag">GCP</span>
         <span class="tag">Azure</span>
         <span class="tag">IBM Cloud</span>
-        <span class="tag">K8s Ecosystem</span>
-        <span class="tag">GSLB + Federated Control Plane</span>
+        <span class="tag">Kubernetes Ecosystem</span>
+        <span class="tag">Containers</span>
+        <span class="tag">GSLB</span>
+        <span class="tag">Federated Control Plane</span>
       </div>
     </div>
+
+    <!-- 2nd: Software Engineering Practices (DevSecOps, secure lifecycle — JD core) -->
     <div class="skill-card">
       <h4>Software Engineering Practices</h4>
-      <p>Embeds the culture and tooling that makes fast delivery safe by default: zero-trust security, observable systems, CI/CD pipelines, and event-driven architectures that hold up under production pressure.</p>
+      <p>Embeds the culture and tooling that makes fast delivery safe by default: zero-trust security, observable systems, CI/CD pipelines, and event-driven architectures. Advances organisations along the secure software lifecycle maturity curve — from siloed teams to integrated engineering, security, DevOps, and QA workflows.</p>
       <div class="tags">
         <span class="tag">DevSecOps</span>
         <span class="tag">SRE</span>
         <span class="tag">MLOps</span>
         <span class="tag">FinOps</span>
+        <span class="tag">Secure Software Lifecycle</span>
         <span class="tag">API-first</span>
         <span class="tag">Microservices</span>
+      </div>
+    </div>
+
+    <!-- 3rd: Digital & AI Platform as a Product -->
+    <div class="skill-card">
+      <h4>Digital &amp; AI Platform as a Product</h4>
+      <p>Builds platforms with a roadmap, backlog, and real customers — turning Internal Developer Platforms and Enterprise AI hubs from IT cost centres into business-velocity engines. Shapes technology roadmaps that connect emerging technology trends to measurable business outcomes.</p>
+      <div class="tags">
+        <span class="tag">Technology Roadmap</span>
+        <span class="tag">Lean Budget</span>
+        <span class="tag">Roadmap &amp; Backlog</span>
+        <span class="tag">Business Velocity</span>
+        <span class="tag">Design Thinking</span>
+        <span class="tag">System Thinking</span>
+      </div>
+    </div>
+
+    <!-- 4th: Extended Enterprise -->
+    <div class="skill-card">
+      <h4>Extended Enterprise &amp; Ecosystem Management</h4>
+      <p>Designs and operates the partner and developer layer that extends platform reach beyond the enterprise — from API gateway architecture to ISV onboarding programmes that turn technology alliances into scalable, governed revenue channels.</p>
+      <div class="tags">
+        <span class="tag">API Gateway</span>
+        <span class="tag">ISV Onboarding</span>
+        <span class="tag">Partner Ecosystems</span>
+        <span class="tag">Developer Portals</span>
+        <span class="tag">Ecosystem Governance</span>
       </div>
     </div>
   </div>
   <div class="skills-grid single-row" style="margin-top: 2mm;">
     <div class="skill-card" style="display:grid; grid-template-columns: 1fr 1fr; gap: 3mm; align-items: center;">
       <div>
-        <h4>Frameworks & Methodologies</h4>
-        <p>Selects and applies the right delivery framework for the scale and context: from SAFe at programme level to Lean Six Sigma for operational efficiency driving execution without bureaucratic overhead.</p>
+        <h4>Frameworks &amp; Methodologies</h4>
+        <p>Selects and applies the right delivery framework for the scale and context — SAFe at programme level, Team Topologies for organisational design, TOGAF for enterprise architecture. Grounds technology decisions in a structured, auditable methodology that senior leadership and regulators can follow.</p>
       </div>
       <div class="tags" style="justify-content: flex-end;">
         <span class="tag">SAFe</span>
@@ -779,12 +723,14 @@
     </div>
   </div>
 
-  <!-- ── 4) Soft Skills ──────────────────── -->
-  <div class="section-title">Soft Skills — Leadership & Outcomes</div>
+  <!-- ── 4) Soft Skills — reordered per recommendations, no Entrepreneurial ── -->
+  <div class="section-title">Soft Skills — Leadership &amp; Outcomes</div>
   <div class="skills-grid">
+
+    <!-- 1st: Executive Communication (JD's top requirement) -->
     <div class="skill-card">
-      <h4>Executive & Stakeholder Communication</h4>
-      <p>Bridges technical depth and executive language making infrastructure decisions legible to C-suite sponsors with equal fluency in a boardroom and a sprint review.</p>
+      <h4>Executive &amp; Stakeholder Communication</h4>
+      <p>Bridges technical depth and executive language — translating complex architectural recommendations and technology choices into actionable insights for both technical teams and non-technical senior stakeholders. Equal fluency in a boardroom and a sprint review.</p>
       <div class="tags">
         <span class="tag">C-Suite Communication</span>
         <span class="tag">Executive Presence</span>
@@ -793,57 +739,46 @@
         <span class="tag">Boardroom Fluency</span>
       </div>
     </div>
+
+    <!-- 2nd: Cross-functional Collaboration -->
     <div class="skill-card">
-      <h4>Team Leadership & Talent Development</h4>
-      <p>Builds, mentors, and scales high-performing cross-functional engineering teams around Lean and Agile delivery cultures.</p>
+      <h4>Cross-functional Collaboration &amp; Alignment</h4>
+      <p>Drives consensus across engineering, security, DevOps, QA, and product teams without losing delivery momentum — building strong cross-team collaboration that accelerates collective progress on technical initiatives.</p>
+      <div class="tags">
+        <span class="tag">Consensus Building</span>
+        <span class="tag">Engineering Alignment</span>
+        <span class="tag">Security &amp; Compliance</span>
+        <span class="tag">Cross-team Delivery</span>
+        <span class="tag">Delivery Momentum</span>
+      </div>
+    </div>
+
+    <!-- 3rd: Team Leadership -->
+    <div class="skill-card">
+      <h4>Team Leadership &amp; Talent Development</h4>
+      <p>Builds, mentors, and scales high-performing cross-functional engineering teams around Lean and Agile delivery cultures — developing the internal capability that sustains technical maturity long after the engagement closes.</p>
       <div class="tags">
         <span class="tag">Team Building</span>
         <span class="tag">Mentoring</span>
         <span class="tag">Cross-functional Teams</span>
         <span class="tag">Lean Culture</span>
         <span class="tag">Agile Delivery</span>
-        <span class="tag">Talent Scaling</span>
       </div>
     </div>
+
+    <!-- 4th: Negotiation -->
     <div class="skill-card">
-      <h4>Cross-functional Collaboration & Alignment</h4>
-      <p>Drives consensus across engineering, product, legal, compliance, and commercial stakeholders without losing delivery momentum.</p>
-      <div class="tags">
-        <span class="tag">Consensus Building</span>
-        <span class="tag">Legal & Compliance</span>
-        <span class="tag">Commercial Alignment</span>
-        <span class="tag">Delivery Momentum</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h4>Negotiation & Conflict Resolution</h4>
-      <p>Manages competing priorities across multi-vendor, multi-squad environments while preserving long-term partner and client relationships.</p>
+      <h4>Negotiation &amp; Conflict Resolution</h4>
+      <p>Manages competing priorities across multi-vendor, multi-squad environments while preserving long-term partner and client relationships — unblocking technical challenges that stall delivery without burning stakeholder trust.</p>
       <div class="tags">
         <span class="tag">Negotiation</span>
         <span class="tag">Conflict Resolution</span>
-        <span class="tag">Multi-vendor</span>
-        <span class="tag">Partner Relations</span>
+        <span class="tag">Multi-vendor Mgmt</span>
+        <span class="tag">Technical Unblocking</span>
         <span class="tag">Priority Mgmt</span>
       </div>
     </div>
   </div>
-  <div class="skills-grid single-row" style="margin-top: 2mm;">
-    <div class="skill-card" style="display:grid; grid-template-columns: 1fr 1fr; gap: 3mm; align-items: center;">
-      <div>
-        <h4>Entrepreneurial Mindset & Ownership</h4>
-        <p>Re-founder. Intrapreneur. Builds internal platforms as ventures, not projects. Comfortable with zero-to-one ambiguity and wired for execution.</p>
-      </div>
-      <div class="tags" style="justify-content: flex-end;">
-        <span class="tag">Re-founder</span>
-        <span class="tag">Intrapreneur</span>
-        <span class="tag">Zero-to-One</span>
-        <span class="tag">Platform Ventures</span>
-        <span class="tag">Execution</span>
-        <span class="tag">Ambiguity Tolerance</span>
-      </div>
-    </div>
-  </div>
-
 
 </div><!-- /p1 -->
 </div><!-- /page 1 -->
@@ -855,13 +790,13 @@
 <div class="page">
 <div class="p2">
 
-  <!-- ── Title block (copy of page 1 header) ── -->
+  <!-- ── Title block (repeated) ── -->
   <div class="p2-title-bar">
     <div class="p2-title-left">
       <h2>Laurent Vincentelli</h2>
-      <div class="p2-tagline">Technology Strategy & Digital Transformation Advisor</div>
+      <div class="p2-tagline">Senior Technology Advisor — Cloud, Platform &amp; Secure Software Engineering</div>
       <div class="p2-current-role">
-        Currently: Engagement Manager at Deloitte, Technology & Transformation<br>
+        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
         <span class="p2-background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
       </div>
     </div>
@@ -879,14 +814,14 @@
     <div class="vtl-block current">
       <div class="vtl-year">2023 —<br>Now</div>
       <div class="vtl-header">
-        <div><span class="vtl-role">Engagement Manager</span> · <span class="vtl-org">Deloitte, Technology & Transformation</span></div>
+        <div><span class="vtl-role">Engagement Manager</span> · <span class="vtl-org">Deloitte, Technology &amp; Transformation</span></div>
       </div>
       <div class="vtl-body">
-        Leading digital & AI platform transformation engagements across Insurance, Financial Services, and Telecom. Accountable across four pillars: client relationship management, financial management, team leadership, and delivery oversight.
+        Advising client organisations on Digital &amp; AI platform strategy across Financial Services, Insurance, and Telecom. Supports client CTOs and CIOs on technology roadmaps, architecture decisions, and technical maturity advancement.
         <ul>
-          <li>Advise client executives (CIOs, CTOs, CDOs) on platform strategy, target operating models, and technology decisions unlocking measurable business velocity</li>
-          <li>Shape proposals and contribute to account growth across the EMEA Consulting practice</li>
-          <li>Build and mentor high-performing delivery teams around Lean and Agile cultures</li>
+          <li>Advise CTO and CIO stakeholders on technology choices, cloud and container architecture, and secure software lifecycle strategy — translating complex technical concepts into executable roadmaps</li>
+          <li>Unblock cross-functional engineering, security, DevOps, and QA teams by diagnosing architectural challenges and providing actionable solutions</li>
+          <li>Monitor emerging technologies — cloud-native, Kubernetes, AI infrastructure, DevSecOps — and feed insights into client technology roadmap development</li>
         </ul>
       </div>
     </div>
@@ -897,11 +832,11 @@
         <div><span class="vtl-role">Senior Manager</span> · <span class="vtl-org">IBM Consulting</span></div>
       </div>
       <div class="vtl-body">
-        Steered delivery and adoption of multi-cloud PaaS solutions for Payments, Capital Markets, and Telecom clients.
+        Advised senior technology leaders across Payments, Capital Markets, and Telecom on Platform-as-a-Service adoption and multi-cloud architecture strategy. Bridged technical engineering teams with C-suite leadership.
         <ul>
-          <li>Architected and led delivery of a multi-cloud API & Developer Portal platform serving 200+ internal and external API consumers</li>
-          <li>Bridged technical engineering teams with senior client leadership; co-shaped winning proposals across the EMEA practice</li>
-          <li>Introduced platform-as-a-product operating model and metrics-driven adoption strategy</li>
+          <li>Architected and advised on multi-cloud API &amp; Developer Portal platforms serving 200+ internal and external consumers across regulated industries</li>
+          <li>Provided expert advisory on technology choices and roadmaps — communicating architectural recommendations to both technical teams and executive sponsors</li>
+          <li>Shaped the platform-as-a-product operating model and introduced metrics-driven adoption frameworks across the EMEA practice</li>
         </ul>
       </div>
     </div>
@@ -914,8 +849,8 @@
       <div class="vtl-body">
         Led design and delivery of a major retailer's Internal Developer Platform supporting 300+ engineers across e-commerce, supply chain, and loyalty product squads.
         <ul>
-          <li>Advised digital leadership on platform-as-a-product model and Team Topologies re-organisation</li>
-          <li>Delivered self-service tooling reducing environment provisioning by an order of magnitude</li>
+          <li>Advised digital leadership on platform-as-a-product model and Team Topologies re-organisation — aligning engineering, security, DevOps, and product teams around a shared infrastructure vision</li>
+          <li>Delivered self-service tooling reducing environment provisioning by an order of magnitude, advancing the organisation's DevOps maturity</li>
         </ul>
       </div>
     </div>
@@ -926,17 +861,17 @@
         <div><span class="vtl-role">Cloud Solutions Architect</span> · <span class="vtl-org">OVHcloud</span></div>
       </div>
       <div class="vtl-body">
-        Designed GDPR-compliant sovereign cloud architecture patterns for regulated financial and public-sector clients. Led pre-sales engineering for hybrid cloud platform adoption across the French enterprise market.
+        Designed GDPR-compliant sovereign cloud architecture patterns for regulated financial and public-sector clients. Advised on cloud platform adoption and secure architecture choices for hybrid cloud environments across the French enterprise market.
       </div>
     </div>
 
     <div class="vtl-block">
       <div class="vtl-year">2015 —<br>2016</div>
       <div class="vtl-header">
-        <div><span class="vtl-role">Senior Managing Consultant</span> · <span class="vtl-org">Capgemini — Defence & Space</span></div>
+        <div><span class="vtl-role">Senior Managing Consultant</span> · <span class="vtl-org">Capgemini — Defence &amp; Space</span></div>
       </div>
       <div class="vtl-body">
-        Co-delivered a PaaS platform for a mission-critical embedded systems programme in a classified environment. Zero-defect CI/CD pipeline with full traceability.
+        Co-delivered a PaaS platform for a mission-critical embedded systems programme in a classified environment. Zero-defect CI/CD pipeline with full traceability and secure software delivery controls.
       </div>
     </div>
 
@@ -946,7 +881,7 @@
         <div><span class="vtl-role">Senior Consultant</span> · <span class="vtl-org">Cognizant</span></div>
       </div>
       <div class="vtl-body">
-        Co-built and managed pan-European cloud platforms (IaaS, PaaS, CaaS). Introduced Agile, DevOps, and SRE practices across legacy transformation programmes in banking and telecoms across Europe and North Africa.
+        Co-built and managed pan-European cloud platforms (IaaS, PaaS, CaaS) for Banking and Telecoms clients. Introduced Agile, DevOps, and SRE practices across legacy transformation programmes across Europe and North Africa.
       </div>
     </div>
 
@@ -956,7 +891,7 @@
         <div><span class="vtl-role">Head of Cloud Engineering</span> · <span class="vtl-org">GreenSaaS → Fiducial Cloud</span></div>
       </div>
       <div class="vtl-body">
-        One of France's first SaaS / cloud platform providers. Designed and built multi-tenant infrastructure from the ground up. Company acquired by Fiducial Group.
+        One of France's first SaaS / cloud platform providers. Designed and built multi-tenant infrastructure from the ground up — monitoring emerging cloud technologies and translating them into production-grade platform architecture. Company acquired by Fiducial Group.
       </div>
     </div>
 
@@ -968,6 +903,104 @@
 
 </div><!-- /p2 -->
 </div><!-- /page 2 -->
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 3 — Achievements
+     ════════════════════════════════════════════════════ -->
+<div class="page">
+<div class="p3">
+
+  <!-- Title bar (repeated) -->
+  <div class="p2-title-bar">
+    <div class="p2-title-left">
+      <h2>Laurent Vincentelli</h2>
+      <div class="p2-tagline">Senior Technology Advisor — Cloud, Platform &amp; Secure Software Engineering</div>
+      <div class="p2-current-role">
+        Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+        <span class="p2-background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+      </div>
+    </div>
+    <div class="p2-title-right">
+      <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a><br>
+      <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+    </div>
+  </div>
+
+  <div class="p2-section-title">Achievements — Selected Engagements</div>
+
+  <div class="ach-stack">
+
+    <!-- 1: The AI Factory -->
+    <div class="ach-card">
+      <div class="ach-left">
+        <div class="ach-title">The AI Factory</div>
+        <div class="ach-ctx">Global Conglomerate — Energy &amp; Utilities</div>
+        <div class="ach-body">Advised CTO on the missing platform layers between raw GPU infrastructure and engineering teams. Designed Kubernetes-based container orchestration, FinOps governance, and secure software lifecycle controls — unblocking the entire AI delivery organisation and transforming a raw infrastructure investment into a self-service AI marketplace with unified governance.</div>
+      </div>
+      <div class="ach-right">
+        <div class="ach-sizing">12 months · $3M · 14-FTE</div>
+        <div class="ach-metrics-label">Success Metrics</div>
+        <div class="kpi-item"><span class="kpi-value">98%↓</span> <span class="kpi-label">AI Service Provisioning Time</span></div>
+        <div class="kpi-item"><span class="kpi-value">100%</span> <span class="kpi-label">Self-service AI Marketplace Adoption</span></div>
+      </div>
+    </div>
+
+    <!-- 2: Internal Developer Platform -->
+    <div class="ach-card">
+      <div class="ach-left">
+        <div class="ach-title">Internal Developer Platform</div>
+        <div class="ach-ctx">Major EMEA Telecom</div>
+        <div class="ach-body">Advised EMEA telco CTO on platform-as-a-product operating model. Aligned engineering, security, DevOps, and QA teams around a shared infrastructure vision — eliminating critical provisioning bottlenecks and advancing the organisation's technical maturity. Delivered a self-service IDP with 500+ voluntary adopters and a 3× increase in deployment frequency.</div>
+      </div>
+      <div class="ach-right">
+        <div class="ach-sizing">10 months · $2.8M · 12-FTE</div>
+        <div class="ach-metrics-label">Success Metrics</div>
+        <div class="kpi-item"><span class="kpi-value">99.1%↓</span> <span class="kpi-label">Provisioning (18 days → 4 hours)</span></div>
+        <div class="kpi-item"><span class="kpi-value">$9M/yr</span> <span class="kpi-label">Productivity Recovered</span></div>
+        <div class="kpi-item"><span class="kpi-value">3×</span> <span class="kpi-label">Deployment Frequency</span></div>
+        <div class="kpi-item"><span class="kpi-value">500+</span> <span class="kpi-label">Voluntary Adopters</span></div>
+      </div>
+    </div>
+
+    <!-- 3: Insurance-as-a-Service -->
+    <div class="ach-card">
+      <div class="ach-left">
+        <div class="ach-title">Insurance-as-a-Service Platform</div>
+        <div class="ach-ctx">Tier-1 NA Carrier — Insurtech</div>
+        <div class="ach-body">Advised CIO on rescuing a stalled hyperscaler investment. Shaped technology roadmap and scalable API architecture to clear 140+ regulatory controls with zero findings — communicating complex cloud architecture choices to both technical leadership and compliance stakeholders. Reframed the programme from infrastructure migration to API ecosystem strategy.</div>
+      </div>
+      <div class="ach-right">
+        <div class="ach-sizing">18 months · $5M · 22-FTE</div>
+        <div class="ach-metrics-label">Success Metrics</div>
+        <div class="kpi-item"><span class="kpi-value">79%↓</span> <span class="kpi-label">Partner Onboarding (14 → 3 wk)</span></div>
+        <div class="kpi-item"><span class="kpi-value">140+</span> <span class="kpi-label">Regulatory Controls, 0 Findings</span></div>
+      </div>
+    </div>
+
+    <!-- 4: Open Banking Platform -->
+    <div class="ach-card">
+      <div class="ach-left">
+        <div class="ach-title">Open Banking Platform</div>
+        <div class="ach-ctx">Major EU Retail Bank — Fintech</div>
+        <div class="ach-body">Advised on API ecosystem architecture and emerging open banking standards. Shaped technology choices for the partner and developer portal strategy — compressing time-to-first-API-call from 3 weeks to 2 days and enabling the bank's largest-ever fintech partner cohort on day one. Delivered 30+ live integrations at launch.</div>
+      </div>
+      <div class="ach-right">
+        <div class="ach-sizing">14 months · $4.2M · 18-FTE</div>
+        <div class="ach-metrics-label">Success Metrics</div>
+        <div class="kpi-item"><span class="kpi-value">90%↓</span> <span class="kpi-label">Time-to-First-API-Call</span></div>
+        <div class="kpi-item"><span class="kpi-value">30+</span> <span class="kpi-label">Fintech Partners, Day One</span></div>
+      </div>
+    </div>
+
+  </div><!-- /ach-stack -->
+
+  <div class="p2-footer">
+    Full engagement portfolio, references, and case-study deep-dives available on request · <strong>laurent.vincentelli.pro</strong>
+  </div>
+
+</div><!-- /p3 -->
+</div><!-- /page 3 -->
 
 </body>
 </html>
