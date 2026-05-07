@@ -4,7 +4,10 @@
       "WebFetch(domain:laurent.vincentelli.pro)",
       "Bash(curl -s \"https://laurent.vincentelli.pro/\" -H \"User-Agent: Mozilla/5.0\")",
       "mcp__Claude_in_Chrome__switch_browser",
-      "WebSearch"
+      "WebSearch",
+      "Bash(gh pr *)",
+      "Bash(gh repo *)",
+      "Bash(gh --version)"
     ]
   }
 }
