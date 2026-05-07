@@ -34,7 +34,7 @@ After this parallel read, summarize back what you understand before proposing an
 **Type:** Internal leadership role (NOT external advisory consulting)
 **What Laurent will lead:** A multi-discipline EY Digital Factory team comprising — at minimum — a Cloud Engineering Manager (AD), Backend SWEs, Data Engineers, Solution Architects, and Project Managers. The 5 team JDs in `context/` describe the team archetypes Laurent will hire, lead, and develop.
 
-**Critical framing nuance:** Laurent is NOT applying as a hands-on coder. He is the **T-shape leader** who orchestrates specialists — broad cross-discipline literacy + deep stewardship of the TOGAF Application & Data layers, platform engineering practices, and delivery governance. Hands-on Azure, .NET/C#, Python, Databricks etc. are owned by his team, not by him.
+**Critical framing nuance:** Laurent is NOT applying as a hands-on coder. He is the **T-shape leader** who orchestrates specialists — broad cross-discipline literacy + deep stewardship of the TOGAF Application & Data layers, platform engineering practices, and delivery governance. Hands-on Azure, .NET/C#, Python, Databricks etc. are owned by his team, not by him. 
 
 ---
 
@@ -75,34 +75,30 @@ After this parallel read, summarize back what you understand before proposing an
 
 ## Folder layout
 
-> Note: `CLAUDE.md` lives at the **workspace root** (`laurent-cv-library/CLAUDE.md`), not inside the application folder. Claude's project-level detection picks it up from there.
-
 ```
-laurent-cv-library/
-├── CLAUDE.md                                           ← this file (workspace root)
-└── ey-luxembourg-Digital Factory-Engineering Manager/
-    ├── context/                                        ← READ-ONLY input (the user owns this)
-    │   ├── jd-engineering_manager-associate_director.md   ← THE target JD
-    │   ├── briefing.md                                ← Laurent's strategic hypothesis
-    │   ├── the Digital Factory leadership.md          ← future bosses (hypothesis)
-    │   ├── The Digital Factory at EY.md               ← global EY Digital Factory context
-    │   ├── jd-cloud_engineering_manager-assistant_director.md
-    │   ├── jd-backend_sofware_engineer-supervising_associate.md
-    │   ├── jd-data_engineer-associate.md
-    │   ├── jd-solution_architect-assistant_director.md
-    │   └── jd-project_manager-assistant_director.md
-    ├── v0/                                             ← DO NOT USE : initial draft
-    │   ├── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
-    │   ├── JD_Match_EY_DigitalFactory_EngineeringManager.html
-    │   ├── Recommendations_EY_DigitalFactory_EngineeringManager.md
-    │   ├── jd-Digital Factory - Engineering Manager - Associate Director.md
-    │   └── jd-engineering_manager-associate_director.md   ← duplicate of context/ version, ignore
-    ├── v1/                                             ← DO NOT USE : first user-led iteration
-    │   ├── briefing.md
-    │   ├── cv.html
-    │   └── cover-letter.html
-    └── v2/                                             ← LATEST — foundation for next iteration
-        └── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
+ey-luxembourg-Digital Factory-Engineering Manager/
+├── CLAUDE.md                                           ← this file
+├── context/                                            ← READ-ONLY input (the user owns this)
+│   ├── jd-engineering_manager-associate_director.md   ← THE target JD
+│   ├── briefing.md                                    ← Laurent's strategic hypothesis (You need to read this file and capture the hypothesis for crafting a 95% or more matching CV + Resume, this is a very important application for Laurnt that wants to take time to taylor the CV to make it resonate to the EY luxembourg hiring Manager/team.  )
+│   ├── the Digital Factory leadership.md              ← future bosses
+│   ├── The Digital Factory at EY.md                   ← global EY Digital Factory context (not specific to EY luxembourg yet the Luxembourg leadership will leverage this EY asset for the local market (Luxembourg is a FSI hub))
+│   ├── jd-cloud_engineering_manager-assistant_director.md
+│   ├── jd-backend_sofware_engineer-supervising_associate.md
+│   ├── jd-data_engineer-associate.md
+│   ├── jd-solution_architect-assistant_director.md
+│   └── jd-project_manager-assistant_director.md
+├── v0/                                                 ← DO NOT USE : initial draft (JD scoring + recommendations + first CV)
+│   ├── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
+│   ├── JD_Match_EY_DigitalFactory_EngineeringManager.html
+│   ├── Recommendations_EY_DigitalFactory_EngineeringManager.md
+│   └── jd-Digital Factory - Engineering Manager - Associate Director.md
+├── v1/                                                 ← DO NOT USE : first user-led iteration
+│   ├── briefing.md
+│   ├── cv.html
+│   └── cover-letter.html
+└── v2/                                                 ← Starting point : LATEST — foundation for next iteration
+    └── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
 ```
 
 **Versioning rule:** when Laurent asks for a meaningful new iteration, create a `v3/` folder, copy v2's CV in, and modify there. Do not overwrite v2 in place — keep iteration history.
@@ -167,7 +163,7 @@ Always weave these terms when tailoring CV / cover letter content:
 ## How to start a new conversation about this application
 
 1. Open Claude in this workspace.
-2. Drop a short brief like: *"Continue work on the EY Luxembourg Engineering Manager AD application. CLAUDE.md at the workspace root has full context."*
+2. Drop a short brief like: *"Continue work on the EY Luxembourg Engineering Manager AD application. CLAUDE.md at `ey-luxembourg-Digital Factory-Engineering Manager/CLAUDE.md` has full context."*
 3. Claude reads this file.
 4. Claude executes the **"Read context files in parallel"** chapter — single message, parallel `Read` calls on all 10 files.
 5. Claude summarizes back its understanding before proposing changes.
