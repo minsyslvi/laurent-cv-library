@@ -1,180 +1,174 @@
-# CLAUDE.md — CV Generator Project Context
+# CLAUDE.md — EY Luxembourg Digital Factory · Engineering Manager (Associate Director) Application
 
-## What this is
-
-This file provides context for continuing work on Laurent Vincentelli's automated CV/Resume generator.
-It summarizes the design decisions, iterations, and final deliverables from the initial build session (May 2026).
+> **Purpose of this file:** continuity context for any new Claude conversation working on Laurent Vincentelli's application to the **EY Luxembourg "Digital Factory — Engineering Manager — Associate Director"** role. Read this file first, then immediately execute the **"Read context files in parallel"** chapter below before producing any new content.
 
 ---
 
-## Project Goal
+## Read context files in parallel
 
-Laurent applies to 3–4 senior consulting/advisory roles per day. He needs to **industrialize** the creation of a perfectly tailored CV + optional cover letter for each application.
+**This is the mandatory starting point of every new conversation about this application.** Before answering anything, before generating, editing, or scoring anything, read all files in the `context/` folder in parallel (single message, multiple `Read` tool calls) AND the latest CV. The application is a leadership pitch — context density is everything.
 
-**Workflow (two-skill pipeline):**
-1. Laurent finds a job description on a platform
-2. He creates a dedicated folder for the application and pastes the JD into a markdown file (see folder convention below)
-3. He opens a Claude conversation, points to the JD file, and invokes the JD Match Scorer
-4. **Skill 1 — JD Match Scorer** runs: fetches laurent.vincentelli.pro, scores the JD against Laurent's profile across 6 weighted dimensions, produces an HTML dashboard + a tailoring recommendations file — both saved into the application folder
-5. Laurent reviews the match dashboard and decides go/no-go
-6. **Skill 2 — CV Generator** runs: reads the JD + recommendations file from the folder, generates a tailored 2-page HTML CV saved into the same folder. The recommendations drive content emphasis, ordering, and augmentation — the CV generator may add or reframe content beyond the website to maximize interview conversion
-7. Laurent exports the CV to PDF or Google Docs/DOCX for submission
+Files to read in parallel (every one of them, every time):
 
----
-
-## Per-Application Folder Convention
-
-Each job application lives in its own folder at the root of the workspace.
-
-**Folder naming:** `[company]-[location]-[role-slug]/`
-**JD file naming:** `jd-[RoleTitle].md`
-
-Example: `deloitte-luxembourg-cto-officer/jd-CTO Officer-TechnicalAdvisor.md`
-
-A folder evolves through three stages as the pipeline runs:
-
-**Stage 1 — JD dropped in (before scoring):**
-```
-deloitte-luxembourg-cto-officer/
-└── jd-CTO Officer-TechnicalAdvisor.md          ← you create this
-```
-
-**Stage 2 — After JD Match Scorer:**
-```
-deloitte-luxembourg-cto-officer/
-├── jd-CTO Officer-TechnicalAdvisor.md
-├── JD_Match_Deloitte_CTOOfficer.html            ← Skill 1: match dashboard
-└── Recommendations_Deloitte_CTOOfficer.md       ← Skill 1: tailoring directives
-```
-
-**Stage 3 — After CV Generator:**
-```
-deloitte-luxembourg-cto-officer/
-├── jd-CTO Officer-TechnicalAdvisor.md
-├── JD_Match_Deloitte_CTOOfficer.html
-├── Recommendations_Deloitte_CTOOfficer.md
-└── CV_Laurent_Vincentelli_Deloitte_CTOOfficer.html  ← Skill 2: tailored CV
-```
-
----
-
-## Deliverables
-
-| File | Location | Purpose |
+| Path | What it is | Why it matters |
 |---|---|---|
-| `SKILL.md` | `.agents/skills/jd-match-scorer/SKILL.md` | **Skill 1.** Scores the JD against Laurent's profile using a 6-dimension weighted algorithm. Produces an HTML dashboard + recommendations file. |
-| `template.html` | `.agents/skills/jd-match-scorer/template.html` | The HTML/CSS template for the match score dashboard (utilitarian, data-oriented). |
-| `SKILL.md` | `.agents/skills/cv-generator/SKILL.md` | **Skill 2.** Generates a tailored 2-page HTML CV from the JD + recommendations. May augment content beyond the website to maximize interview conversion. |
-| `template.html` | `.agents/skills/cv-generator/template.html` | The validated HTML/CSS template (v8). Claude copies this structure and injects tailored content — it does NOT regenerate CSS from scratch. |
-| `CLAUDE.md` | `/CLAUDE.md` (root of workspace) | This file. Context log for new conversations. |
+| `context/jd-engineering_manager-associate_director.md` | **THE target JD** — the role Laurent is applying for | Drives all tailoring decisions |
+| `context/briefing.md` | Laurent's hypothesis on **why EY Luxembourg is hiring now** | Strategic narrative for CV + cover letter framing |
+| `context/the Digital Factory leadership.md` | The **EY Digital Factory leadership team** (Laurent's potential future bosses) | Tone, vocabulary, and political alignment for messaging |
+| `context/The Digital Factory at EY.md` | EY's **global Digital Factory construct** (what it is, how it operates) | Frame for the "industrialised delivery" positioning |
+| `context/jd-cloud_engineering_manager-assistant_director.md` | Team JD #1 — **Cloud Engineering Manager** (will report to Laurent) | Azure stack, FinOps, regulatory framing |
+| `context/jd-backend_sofware_engineer-supervising_associate.md` | Team JD #2 — **Backend SWE Supervising Associate** | .NET/C# / Python stack, DDD/CQRS, microservices |
+| `context/jd-data_engineer-associate.md` | Team JD #3 — **Data Engineer** | Lakehouse (Databricks/Fabric), Azure Data Factory |
+| `context/jd-solution_architect-assistant_director.md` | Team JD #4 — **Solution Architect** | Enterprise/cloud architecture, integration |
+| `context/jd-project_manager-assistant_director.md` | Team JD #5 — **Project Manager** | Delivery governance, cadence rituals, portfolio reporting |
+| `v2/CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html` | **Latest CV** (the foundation to evolve) | Current state of all tailoring decisions |
+
+After this parallel read, summarize back what you understand before proposing any change. Do not skip files, even if you "think" you remember them — Laurent updates them frequently and stale memory will tank the work.
 
 ---
 
-## Design Decisions Made (and why)
+## The role being applied for
 
-### Template structure — Page 1
-1. **Single-column layout** (not sidebar). Sidebar was tested in v1 and rejected — it cramped the content and didn't match the website's visual language.
-2. **Title bar**: Left = name, tagline (dynamic), contact, current role + pedigree ("ex-IBMer, ex-Accenture, ex-Capgemini"). Right = certifications + languages.
-3. **Profile Highlights**: Uses Laurent's own pattern/approach/result structure from his website. Lightly tailored per JD but structure is preserved.
-4. **Achievements — dashboard cards**: 2×2 grid. Each card has 60% left (explainer text) and 40% right (dark navy panel with engagement sizing + gold success metrics). This layout was iterated — the initial version had KPIs in a separate column that readers couldn't link to the explainer. The card-based approach solved that.
-5. **Hard Skills cards**: Match the exact visual and wording from laurent.vincentelli.pro (screenshot-verified). 2×2 grid + 1 full-width (Frameworks & Methodologies). Each card has title, explainer paragraph, blue tags.
-6. **Soft Skills cards**: Same pattern. 2×2 grid + 1 full-width (Entrepreneurial Mindset).
-7. **Horizontal timeline**: Was included in early versions but removed because page 1 overflows. Page 2's vertical timeline covers the career progression.
+**Title:** Digital Factory — Engineering Manager — Associate Director
+**Location:** Luxembourg
+**Type:** Internal leadership role (NOT external advisory consulting)
+**What Laurent will lead:** A multi-discipline EY Digital Factory team comprising — at minimum — a Cloud Engineering Manager (AD), Backend SWEs, Data Engineers, Solution Architects, and Project Managers. The 5 team JDs in `context/` describe the team archetypes Laurent will hire, lead, and develop.
 
-### Template structure — Page 2
-1. **Title bar repeated** (same content, slightly smaller heading).
-2. **Vertical timeline**: Year labels (1.05rem, bold) on the left, connecting line with dots, role titles (1.3rem bold) + company names (1.25rem) on the right. Current role dot is magenta; others are navy.
-3. **Proportions**: ~3/8 for the timeline visual (years + line + dots), ~5/8 for the text content.
-4. **Fills the full page**: blocks use `flex: 1` to distribute evenly.
-
-### Strategic tailoring logic
-- **Headline mirrors employer vocabulary** — dynamically rewritten per JD
-- **Advisory-first positioning** — reframe from "built platforms" to "advised CIOs on platform strategy"
-- **Outcome-led bullets** — business outcome first, activity second
-- **Engagement cards ordered by JD relevance** — most relevant case study appears top-left
-- **Skill cards ordered by JD relevance** — most relevant skill domain appears first
-- **Entrepreneurial track**: not included by default — Claude asks the user each time
-
-### Visual design
-- Fonts: Playfair Display (headers, editorial) + DM Sans (body, modern)
-- Color accent: navy (#0f3460) for structure, magenta (#c2185b) for highlights/tagline, gold (#ffd54f) for metric values in achievement cards
-- A4 pages: 210mm × 297mm, `@page` and `@media print` ready
-- Cards use light borders (#c8d5e3) matching the website's card style
+**Critical framing nuance:** Laurent is NOT applying as a hands-on coder. He is the **T-shape leader** who orchestrates specialists — broad cross-discipline literacy + deep stewardship of the TOGAF Application & Data layers, platform engineering practices, and delivery governance. Hands-on Azure, .NET/C#, Python, Databricks etc. are owned by his team, not by him.
 
 ---
 
-## Iteration History
+## Latest CV — `v2/` is the foundation
 
-| Version | Changes |
-|---|---|
-| v1 | Two-column layout (sidebar + main). Rejected — too cramped, didn't match website. |
-| v2 | Single-column page 1. Skill cards matching website screenshots. Horizontal timeline (L→R). Vertical timeline on page 2. |
-| v3 | Achievement cards redesigned as dashboard cards (top/bottom: explainer + KPI footer). Horizontal timeline removed (overflow). Page 2 timeline proportions fixed (3/8 vs 5/8). |
-| v4 | Added "Currently: Engagement Manager at Deloitte, T&T" + "ex-IBMer, ex-Accenture, ex-Capgemini" to title sections on both pages. |
-| v5 | Achievement cards redesigned again: 60% left (explainer) / 40% right (navy panel with engagement sizing + gold success metrics). Placeholder sizing values added. |
-| v6 | Page 2 timeline: year labels increased to 1.05rem bold, role titles to 1.1rem, company names to 1.05rem. |
-| v7 | Role titles bumped to 1.3rem bold, company names to 1.25rem (per user request). |
-| v8 (final) | Achievement right panels: all text changed to plain white, metric values kept gold. Final version locked. |
+**Path:** `/Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/ey-luxembourg-Digital Factory-Engineering Manager/v2/CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html`
+
+**Format:** 3-page A4 HTML, EY brand colors (yellow `#ffe600` + dark grey `#2e2e38`), self-contained CSS, print-ready.
+
+**Page 1:** Title section + Profile Highlights + Hard Skills (4 cards in 2×2 + 1 full-width Frameworks card) + Soft Skills (4 cards in 2×2)
+**Page 2:** Professional Experience (vertical timeline, 7 roles, current role highlighted in yellow)
+**Page 3:** Achievements — 4 STAR-formatted engagement cards (Software Factory · AI & Data Factory · Open Banking · Insurance-as-a-Service) with dark-grey metric panels and yellow KPI values
+
+### Tailoring decisions locked in v2
+
+| Decision | What it is | Why |
+|---|---|---|
+| **Tagline** | "Digital & AI Factory Engineering Leader: Industrialising Digital & AI Transformation for Regulated FSI" | Mirrors EY's "industrialise" framework + names FSI without claiming Luxembourg-specific experience |
+| **Title section** | LOCKED — name, contact, current role line, certs (PSM/PSPO/Kanban · LSSBB · SAFe Practitioner · TOGAF Practitioner), languages — DO NOT change without explicit user instruction | User-defined invariant |
+| **No Azure cert** | Azure expertise is implicit/team-led, not certified | Team's Cloud Engineering Manager carries the Azure cert; Laurent leads them |
+| **T-shape positioning** | Skills cards describe stewardship/orchestration, NOT hands-on stack mastery | Leadership role, not IC |
+| **No CSSF/PSF mentions** | Generic "FSI regulatory" / "audit-ready" language only | Laurent has worked Canada, US, UK, France — not Luxembourg specifically. Equivalent regulatory exposure, not the named frameworks. |
+| **Em-dash usage** | Reduced; replaced with `,` or `:` in content text. Design bullets (`—` as `::before` and `list-style-type`) preserved. | User stylistic preference |
+| **STAR achievement cards** | Each Page 3 card: **Context** / **My contribution** (bullets) / **Result** | Consulting-style framing emphasizing Laurent's individual impact |
+| **Engagement renamings** | "Internal Developer Platform" → "The Software Factory"; "The AI Factory" → "The AI & Data Factory" | Mirrors EY's Digital Factory taxonomy |
+| **Engagement order** | Software Factory (1st, most direct EM match) → AI & Data Factory → Open Banking → Insurance | Recommended order from JD Match Scorer |
+| **Hard skill order** | Software Engineering Practices → Hybrid Cloud → Digital & AI Platform as a Product → Application & Data Architecture Stewardship → Frameworks (full-width) | JD-priority weighted |
+| **Soft skill order** | Team Leadership → Cross-functional Collaboration → Negotiation & Conflict Resolution → Executive Communication | Team Leadership leads (JD's #1 emphasis) |
+
+### Engagement sizing (still placeholders — TODO with Laurent)
+
+- The Software Factory: 10 months · $2.8M · 12-FTE
+- The AI & Data Factory: 12 months · $3M · 14-FTE
+- Open Banking Platform: 14 months · $4.2M · 18-FTE
+- Insurance-as-a-Service Platform: 18 months · $5M · 22-FTE
 
 ---
 
-## Known TODOs
+## Folder layout
 
-1. **Engagement sizing values are PLACEHOLDERS** — Laurent needs to provide real duration/budget/FTE for each case study:
-   - Insurance-as-a-Service Platform: currently "18 months · $5M · 22-FTE"
-   - The AI Factory: currently "12 months · $3M · 14-FTE"
-   - Open Banking Platform: currently "14 months · $4.2M · 18-FTE"
-   - Internal Developer Platform: currently "10 months · $2.8M · 12-FTE"
-
-2. **Cover letter template** — not yet built. The SKILL.md has instructions for generating one, but no HTML template exists yet. It will be generated inline or as a simple HTML when requested.
-
-3. **Testing** — The skill needs to be tested in a fresh conversation:
-   - Re-run the Gartner JD through the skill
-   - Compare output to the manually crafted v8
-   - Verify the strategic tailoring logic produces the right emphasis
-
----
-
-## File Structure
+> Note: `CLAUDE.md` lives at the **workspace root** (`laurent-cv-library/CLAUDE.md`), not inside the application folder. Claude's project-level detection picks it up from there.
 
 ```
-/Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/
-├── CLAUDE.md                                        (this file)
-├── [company]-[location]-[role-slug]/                (one folder per application)
-│   ├── jd-[RoleTitle].md                            (JD — created by Laurent)
-│   ├── JD_Match_[Company]_[Role].html               (Skill 1 output)
-│   ├── Recommendations_[Company]_[Role].md          (Skill 1 output → Skill 2 input)
-│   └── CV_Laurent_Vincentelli_[Company]_[Role].html (Skill 2 output)
-└── .agents/
-    └── skills/
-        ├── jd-match-scorer/                         (Skill 1 — runs first)
-        │   ├── SKILL.md                             (scoring algorithm + instructions)
-        │   └── template.html                        (dashboard template)
-        └── cv-generator/                            (Skill 2 — runs after go/no-go)
-            ├── SKILL.md                             (CV generation instructions)
-            └── template.html                        (v8 HTML/CSS template)
+laurent-cv-library/
+├── CLAUDE.md                                           ← this file (workspace root)
+└── ey-luxembourg-Digital Factory-Engineering Manager/
+    ├── context/                                        ← READ-ONLY input (the user owns this)
+    │   ├── jd-engineering_manager-associate_director.md   ← THE target JD
+    │   ├── briefing.md                                ← Laurent's strategic hypothesis
+    │   ├── the Digital Factory leadership.md          ← future bosses (hypothesis)
+    │   ├── The Digital Factory at EY.md               ← global EY Digital Factory context
+    │   ├── jd-cloud_engineering_manager-assistant_director.md
+    │   ├── jd-backend_sofware_engineer-supervising_associate.md
+    │   ├── jd-data_engineer-associate.md
+    │   ├── jd-solution_architect-assistant_director.md
+    │   └── jd-project_manager-assistant_director.md
+    ├── v0/                                             ← DO NOT USE : initial draft
+    │   ├── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
+    │   ├── JD_Match_EY_DigitalFactory_EngineeringManager.html
+    │   ├── Recommendations_EY_DigitalFactory_EngineeringManager.md
+    │   ├── jd-Digital Factory - Engineering Manager - Associate Director.md
+    │   └── jd-engineering_manager-associate_director.md   ← duplicate of context/ version, ignore
+    ├── v1/                                             ← DO NOT USE : first user-led iteration
+    │   ├── briefing.md
+    │   ├── cv.html
+    │   └── cover-letter.html
+    └── v2/                                             ← LATEST — foundation for next iteration
+        └── CV_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html
 ```
 
----
-
-## How to use in a new conversation
-
-1. Create a folder for the application: `[company]-[location]-[role-slug]/`
-2. Paste the JD into a markdown file inside it: `jd-[RoleTitle].md`
-3. Open a new Claude conversation with this workspace as context
-4. Point Claude to the JD file: e.g. "Score this JD: `deloitte-luxembourg-cto-officer/jd-CTO Officer-TechnicalAdvisor.md`"
-5. Claude reads the JD, runs the scorer, saves the dashboard + recommendations into the same folder
-6. Review the dashboard, then say "proceed" to trigger the CV generator
-7. Claude reads the JD + recommendations from the folder and saves the tailored CV alongside them
-
-**Shortcut options:**
-- **Score only:** "Score this JD, don't generate a CV yet"
-- **Skip scoring:** "Generate a CV for this JD, skip the scoring step"
+**Versioning rule:** when Laurent asks for a meaningful new iteration, create a `v3/` folder, copy v2's CV in, and modify there. Do not overwrite v2 in place — keep iteration history.
 
 ---
 
-## Key URLs
+## Design system (EY brand)
 
-- **Laurent's professional profile (source of truth):** https://laurent.vincentelli.pro/
-- **LinkedIn:** https://www.linkedin.com/in/laurentvincentelli/
-- **Contact:** laurent@vincentelli.pro
+```
+--accent       #ffe600   EY Yellow (section underlines, current-role timeline dot, KPI values)
+--accent-dark  #2e2e38   EY Dark Grey (h1/h2, section titles, achievement card right panel, timeline line)
+--highlight    #747480   EY mid-grey (taglines)
+--ink          #1a1a2e   body ink
+--tag-bg       #f2f2f6   skill tag background
+--tag-text     #2e2e38   skill tag text
+```
+
+Fonts: **Playfair Display** (display, headers) + **DM Sans** (body). Loaded via Google Fonts CDN.
+Page sizing: A4 portrait, `@page { size: A4; margin: 0 }`, print-ready.
+
+---
+
+## Key EY / target-JD vocabulary to mirror
+
+Always weave these terms when tailoring CV / cover letter content:
+
+- **"Industrialise" / "industrialised"** — EY's preferred verb for moving from PoC to production at scale
+- **"Digital Factory"** — EY's specific construct (always with capital D and F)
+- **"Engineering excellence"**, **"craftsmanship"**, **"predictable delivery"**, **"technical stewardship"**
+- **"Audit-Ready by default"** — generic equivalent of CSSF/PSF readiness
+- **"Data-Driven Audit & Assurance"** — EY's signature use case for data platforms
+- **"DORA & SPACE metrics"** — engineering productivity vocabulary
+- **"Onshore / nearshore / offshore matrix delivery"** — EY operating model signal
+- **"Platform engineering"**, **"shift-left"**, **"DevSecOps"**, **"SRE"**, **"FinOps"**
+- **"TOGAF Application & Data layers"** — Laurent's stewardship anchor (vs. infra layer which his Cloud EM owns)
+
+---
+
+## Hard guardrails (do not violate)
+
+- ❌ Do NOT add CSSF/PSF or any Luxembourg-specific regulatory framework as something Laurent has practiced — he has not. Use generic "FSI regulatory" language.
+- ❌ Do NOT claim hands-on coding in .NET/C#, Python, Spark, or other team-stack languages. Laurent is the leader, not the IC.
+- ❌ Do NOT add Azure certifications — Laurent does not hold them; the team's Cloud Engineering Manager will.
+- ❌ Do NOT modify the title section (name, contact, current role, certs, languages) without explicit user instruction. The tagline can be optimized.
+- ❌ Do NOT overwrite `v2/` in place. Always start a new `v3/`, `v4/`... folder for the next iteration.
+- ❌ Do NOT regenerate CSS from scratch — copy the v2 template and only modify dynamic content + tokens.
+- ❌ Do NOT use em-dashes (`—`) as content separators — use `,` or `:`. The em-dash is reserved for design bullets only.
+- ✅ DO mirror the EY vocabulary list above throughout the CV / cover letter.
+- ✅ DO maintain the T-shape positioning: stewardship + orchestration, not deep stack mastery.
+
+---
+
+## Open work / next likely tasks
+
+1. **Cover letter** — `v1/cover-letter.html` exists as a draft; needs alignment to v2's CV positioning, EY brand colors, T-shape framing, and `briefing.md` strategic narrative. Save to `v2/CoverLetter_Laurent_Vincentelli_EY_DigitalFactory_EngineeringManager.html`.
+2. **Real engagement sizing** — replace placeholder $ / FTE / duration values when Laurent provides actuals.
+3. **JD Match re-score** — run the `jd-match-scorer` skill against v2's CV to confirm the score is at the 95% target, generate an updated `v2/JD_Match_*.html` and `v2/Recommendations_*.md`.
+4. **French version** — Luxembourg is French-speaking; a French translation of the CV may be requested. Use Laurent's native French + the EY brand and same structural template.
+
+---
+
+## How to start a new conversation about this application
+
+1. Open Claude in this workspace.
+2. Drop a short brief like: *"Continue work on the EY Luxembourg Engineering Manager AD application. CLAUDE.md at the workspace root has full context."*
+3. Claude reads this file.
+4. Claude executes the **"Read context files in parallel"** chapter — single message, parallel `Read` calls on all 10 files.
+5. Claude summarizes back its understanding before proposing changes.
+6. Then the actual work begins.
