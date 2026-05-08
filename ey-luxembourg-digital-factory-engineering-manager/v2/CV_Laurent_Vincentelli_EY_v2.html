@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent Vincentelli — Engineering Leader · Digital Factory</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --page-w: 210mm;
+            --page-h: 297mm;
+            --ink: #1a1a2e;
+            --accent: #ffe600;
+            --accent-dark: #2e2e38;
+            --highlight: #747480;
+            --muted: #5a6275;
+            --rule: #d8dde6;
+            --bg: #ffffff;
+            --panel: #2e2e38;
+            --chip-bg: #f5f5f7;
+            --chip-border: #d8dde6;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            font-size: 11.25px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--ink);
+            background: #d5d5d5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: var(--page-w);
+            height: var(--page-h);
+            overflow: hidden;
+            background: var(--bg);
+            margin: 8mm auto;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .12);
+            position: relative;
+            padding: 13mm 15mm 12mm 15mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+
+        /* ── HEADER STRIP (page 1) ───────────────── */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8mm;
+            align-items: center;
+            padding-bottom: 4mm;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 5mm;
+        }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            line-height: 1.04;
+            letter-spacing: -.02em;
+        }
+
+        .title-left .tagline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--highlight);
+            margin-top: 1.2mm;
+            line-height: 1.35;
+        }
+
+        .title-left .contact-line {
+            margin-top: 1.5mm;
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .title-left .contact-line a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .title-left .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .title-left .current-role {
+            margin-top: 2mm;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .title-left .current-role .background {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .header .photo {
+            width: 26mm;
+            height: 26mm;
+            border-radius: 2mm;
+            object-fit: cover;
+            border: 1px solid var(--rule);
+        }
+
+        /* ── COMPACT HEADER (page 2) ─────────────── */
+        .mini-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 3mm;
+            border-bottom: 1.5px solid var(--accent);
+            margin-bottom: 5mm;
+        }
+
+        .mini-header .mh-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            letter-spacing: -.01em;
+        }
+
+        .mini-header .mh-meta {
+            font-size: .78rem;
+            color: var(--muted);
+        }
+
+        .mini-header .mh-meta a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        /* ── SECTION TITLE ───────────────────────── */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            margin-bottom: 3mm;
+        }
+
+        section+section {
+            margin-top: 5mm;
+        }
+
+        /* ── PROFILE ─────────────────────────────── */
+        .exec-summary p {
+            font-size: 1rem;
+            line-height: 1.55;
+            color: var(--ink);
+        }
+
+        /* ── CAPABILITY GRID (4×1 stacked) ───────── */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 3mm;
+        }
+
+        .cap {
+            border: 1px solid var(--rule);
+            border-top: 3px solid var(--accent);
+            border-radius: 2px;
+            padding: 2.8mm 3.2mm 2.5mm 3.2mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cap h3 {
+            font-family: var(--font-body);
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 1.5mm;
+        }
+
+        .cap .mandate {
+            font-size: .9rem;
+            line-height: 1.42;
+            color: var(--accent-dark);
+            font-weight: 700;
+            margin-bottom: 2mm;
+        }
+
+        .cap .approach {
+            font-size: .85rem;
+            line-height: 1.5;
+            color: var(--ink);
+            margin-bottom: 2mm;
+            flex: 1;
+        }
+
+        .cap .track-record {
+            font-size: .78rem;
+            line-height: 1.4;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: auto;
+        }
+
+        .cap .track-record .label {
+            font-style: normal;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-right: 0.5mm;
+        }
+
+        /* Thesis intro under section title */
+        .thesis {
+            font-size: .92rem;
+            line-height: 1.55;
+            color: var(--ink);
+            margin-bottom: 4mm;
+        }
+
+        .cap .metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5mm;
+            margin-top: auto;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 1mm;
+            background: var(--chip-bg);
+            border: 1px solid var(--chip-border);
+            border-radius: 2px;
+            padding: 0.6mm 2mm;
+            font-size: .7rem;
+            line-height: 1.35;
+            color: var(--accent-dark);
+            font-weight: 500;
+        }
+
+        .chip .num {
+            font-weight: 800;
+            color: var(--accent-dark);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .chip .num::before {
+            content: '';
+            display: inline-block;
+            width: 1.5mm;
+            height: 1.5mm;
+            background: var(--accent);
+            margin-right: 1mm;
+            vertical-align: middle;
+            border-radius: 0.5mm;
+        }
+
+        /* ── PROFESSIONAL EXPERIENCE ─────────────── */
+        .exp {
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+        }
+
+        .role {
+            padding-left: 4mm;
+            border-left: 2px solid var(--rule);
+        }
+
+        .role.current {
+            border-left-color: var(--accent);
+        }
+
+        .role-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4mm;
+            margin-bottom: 0.5mm;
+        }
+
+        .role-title {
+            font-size: .98rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+
+        .role-title .org {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .role-period {
+            font-size: .78rem;
+            color: var(--muted);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .role-scope {
+            font-size: .85rem;
+            font-style: italic;
+            color: var(--highlight);
+            margin-bottom: 0.8mm;
+            line-height: 1.4;
+        }
+
+        .role-impact {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .role-impact li {
+            font-size: .85rem;
+            line-height: 1.45;
+            color: var(--ink);
+            padding-left: 4mm;
+            position: relative;
+            margin-bottom: 0.4mm;
+        }
+
+        .role-impact li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .role-impact .cap-tag {
+            display: inline;
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-right: 1.5mm;
+        }
+
+        /* ── CREDENTIALS ─────────────────────────── */
+        .credentials {
+            margin-top: auto;
+            padding-top: 5mm;
+            border-top: 1.5px solid var(--accent);
+            display: grid;
+            grid-template-columns: 1.1fr 1.4fr 1fr;
+            gap: 8mm;
+        }
+
+        .cred-block h4 {
+            font-family: var(--font-body);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: 1.5mm;
+        }
+
+        .cred-block p,
+        .cred-block li {
+            font-size: .85rem;
+            line-height: 1.5;
+            color: var(--ink);
+        }
+
+        .cred-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cred-block li {
+            margin-bottom: 0.3mm;
+        }
+
+        .cred-block .sub {
+            color: var(--muted);
+            font-size: .8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ════════════════════════════════════════════════════
+         PAGE 1 — Header · Profile · 6 Capabilities (2×3 grid)
+         ════════════════════════════════════════════════════ -->
+    <div class="page">
+
+        <header class="header">
+            <div class="title-left">
+                <h1>Laurent Vincentelli</h1>
+                <div class="tagline">Digital &amp; AI Factory Engineering Leader<br>Industrializing Digital &amp; AI
+                    Transformation for Regulated FSI</div>
+                <div class="contact-line">
+                    <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a> ·
+                    <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+                </div>
+                <div class="current-role">
+                    Currently: Engagement Manager at Deloitte, Technology &amp; Transformation<br>
+                    <span class="background">ex-IBMer, ex-Accenture, ex-Capgemini</span>
+                </div>
+            </div>
+            <img src="photo.jpeg" alt="Laurent Vincentelli" class="photo">
+        </header>
+
+        <section class="exec-summary">
+            <h2 class="section-title">Profile</h2>
+            <p>Engineering Manager with 15+ years building and scaling cross-functional engineering organisations for
+                regulated Financial Services and Telecom. Stand up enterprise <strong>Digital Factories</strong> that
+                move from pilot to production at pace, supported by platform-as-a-product discipline, modern
+                microservice and event-driven architectures, and audit-ready governance. Equally credible in a Partner
+                steering committee, a regulator briefing, and a sprint retrospective. This is the leadership operating
+                system I bring to the EY Luxembourg Digital Factory.</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">My expertise for the EY Luxembourg Digital Factory</h2>
+            <p class="thesis">My candidacy for the EY Luxembourg Digital Factory rests on two interlocking
+                commitments: I will lead the cross-functional engineering team (cloud engineering, backend,
+                and data engineering) directly, and through that team I will own Delivery &amp; Execution,
+                Technical Stewardship, and Quality, Reliability &amp; Operability. The four mandates below
+                describe how I will run that engineering organization.</p>
+            <div class="cap-grid">
+
+                <!-- 1: Team & People Leadership — leads the people directly -->
+                <article class="cap">
+                    <h3>Team &amp; People Leadership</h3>
+                    <p class="mandate">I will build, lead, and retain the EY Luxembourg Digital Factory's
+                        cross-functional engineering team across cloud engineering, backend, and data
+                        engineering, in partnership with Project Management and Solution Architecture.</p>
+                    <p class="approach">Hire deliberately, set clear goals, and run growth-oriented
+                        performance conversations on individualised development plans. Coach leads and
+                        engineers across adjacent domains, raising the bar on engineering excellence, code
+                        quality, and maintainability. Nurture an inclusive, high-trust culture through
+                        blameless retrospectives and continuous coaching. Promote knowledge sharing across
+                        squads to build literacy across cloud, backend, and data engineering.</p>
+                    <p class="track-record"><span class="label">Proven at scale:</span> direct line
+                        leadership of cross-functional squads of 12 to 22 FTE across regulated Financial
+                        Services and Telecom; 200+ engineers coached cumulatively.</p>
+                </article>
+
+                <!-- 2: Delivery & Execution — leader-steward of delivery flow -->
+                <article class="cap">
+                    <h3>Delivery &amp; Execution</h3>
+                    <p class="mandate">I will own delivery outcomes across the EY Luxembourg Digital Factory
+                        engineering organization, ensuring the team ships value predictably while balancing
+                        scope, capacity, and budget against strategic objectives.</p>
+                    <p class="approach">Run Lean and Agile delivery: Scrum at squad level, Scaled Agile
+                        (SAFe) at programme level, with lightweight planning, review, and retrospective
+                        rituals. Partner closely with Business Stakeholders, Product, Design, Architecture,
+                        CyberSecurity, and Data to refine scope, sequence work, and remove impediments.
+                        Represent engineering in governance and portfolio forums, providing transparent
+                        updates on progress, risks, and mitigations. Coordinate multi-vendor, multi-squad
+                        delivery across onshore, nearshore, and offshore centres.</p>
+                    <p class="track-record"><span class="label">Proven at scale:</span> restored predictable
+                        release cadence on multiple regulated FSI programmes; coached delivery health using
+                        DORA and SPACE measures.</p>
+                </article>
+
+                <!-- 3: Technical Stewardship — leader-steward of engineering standards -->
+                <article class="cap">
+                    <h3>Technical Stewardship</h3>
+                    <p class="mandate">I will set and uphold the engineering standards of the EY Luxembourg
+                        Digital Factory: secure, scalable, observable, and cloud-native systems aligned to
+                        enterprise reference architectures.</p>
+                    <p class="approach">Champion DevOps and DevSecOps practices that span CI/CD, trunk-based
+                        development, automated testing, and code reviews. Guide architectural decisions in
+                        partnership with the Solution Architect and enterprise architects, and oversee
+                        technical risk management early in the lifecycle. Encourage reuse across the
+                        architectural runway through shared libraries, components, templates, and
+                        architecture-decision records. Drive systematic remediation of defects and technical
+                        debt so solutions stay maintainable and cost-efficient.</p>
+                    <p class="track-record"><span class="label">Proven at scale:</span> stood up two
+                        enterprise Digital Factories embedding microservices, event-driven, and
+                        Domain-Driven Design patterns across Open Banking and Insurance platforms.</p>
+                </article>
+
+                <!-- 4: Quality, Reliability & Operability — leader-steward of reliability -->
+                <article class="cap">
+                    <h3>Quality, Reliability &amp; Operability</h3>
+                    <p class="mandate">I will embed SRE practices and a blameless incident culture across
+                        the EY Luxembourg Digital Factory engineering teams, and keep the Digital Factory
+                        audit-ready at all times under FSI regulatory constraints.</p>
+                    <p class="approach">Build production-readiness, hypercare, and stable operations into
+                        the team's definition of done, in partnership with platform and support functions.
+                        Instrument every service with telemetry, SLOs, error budgets, and runbooks. Run
+                        blameless post-incident reviews and convert findings into durable improvements.
+                        Coordinate with cyber-security and compliance functions to evidence controls and
+                        clear regulatory inspections without findings.</p>
+                    <p class="track-record"><span class="label">Proven at scale:</span> instituted SRE-grade
+                        SLOs and error-budget governance on an enterprise AI and Data platform; delivered
+                        audit-ready infrastructure that cleared regulatory inspections without findings.</p>
+                </article>
+
+            </div>
+        </section>
+
+    </div><!-- /page 1 -->
+
+
+    <!-- ════════════════════════════════════════════════════
+         PAGE 2 — Professional Experience · Credentials
+         ════════════════════════════════════════════════════ -->
+    <div class="page">
+
+        <div class="mini-header">
+            <div class="mh-name">Laurent Vincentelli</div>
+            <div class="mh-meta">
+                <a href="mailto:laurent@vincentelli.pro">laurent@vincentelli.pro</a> ·
+                <a href="https://www.linkedin.com/in/laurentvincentelli/">linkedin.com/in/laurentvincentelli</a>
+            </div>
+        </div>
+
+        <section>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="exp">
+
+                <div class="role current">
+                    <div class="role-line">
+                        <div class="role-title">Engagement Manager <span class="org">· Deloitte, Technology &amp;
+                                Transformation</span></div>
+                        <div class="role-period">2023 — Now</div>
+                    </div>
+                    <div class="role-scope">Director-track band: portfolio of [N] concurrent engagements, ~[N] FTE
+                        cumulative across cross-functional engineering teams (cloud, backend, data, security,
+                        architecture). Lead engineering-focused engagements across Financial Services, Insurance, and
+                        Telecom under strict regulatory and audit constraints; Partner-adjacent client and risk
+                        ownership.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Team &amp; People · Cross-Functional ·</span> Coach engineering leads
+                            and squads across cloud, backend, security, and data domains, embedding individualised
+                            development plans and inclusive, high-trust ways of working; represent engineering in
+                            Partner-led governance and portfolio forums.</li>
+                        <li><span class="cap-tag">Delivery &amp; Execution · Quality &amp; Reliability ·</span> Restore
+                            predictable release cadence through DORA and SPACE coaching; institute SRE-grade SLOs, error
+                            budgets, and blameless post-incident reviews across multi-squad regulated FSI programmes.
+                        </li>
+                        <li><span class="cap-tag">Technical Stewardship · Platform &amp; Reuse ·</span> Uphold
+                            engineering standards for secure, observable, audit-ready systems via platform engineering,
+                            IaC governance, automated quality gates, and shared-library and template strategies.</li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Senior Manager <span class="org">· IBM Consulting</span></div>
+                        <div class="role-period">2019 — 2023</div>
+                    </div>
+                    <div class="role-scope">Direct line management of engineering teams delivering Platform-as-a-Service
+                        solutions across Payments, Capital Markets, and Telecom in regulated environments.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Team &amp; People · Delivery &amp; Execution ·</span> Built and
+                            retained high-performing engineering squads delivering multi-cloud API and Data platforms to
+                            200+ internal and external consumers; owned release planning, capacity, and risk reporting
+                            end-to-end.</li>
+                        <li><span class="cap-tag">Technical Stewardship · Platform &amp; Reuse ·</span> Shaped the
+                            platform-as-a-product operating model and rolled out DORA / SPACE-aligned productivity
+                            frameworks across the EMEA engineering practice; embedded shared-component and template
+                            reuse.</li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Manager <span class="org">· Accenture</span></div>
+                        <div class="role-period">2018 — 2019</div>
+                    </div>
+                    <div class="role-scope">Engineering Manager for a major retailer's Software Factory: 12-engineer
+                        cross-functional squad serving 300+ developers across e-commerce, supply chain, and loyalty.
+                    </div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Team &amp; People ·</span> Owned the full delivery lifecycle: hiring,
+                            onboarding, individualised development plans, growth-oriented performance conversations, and
+                            engineering excellence coaching.</li>
+                        <li><span class="cap-tag">Cross-Functional · Delivery &amp; Execution ·</span> Applied Team
+                            Topologies to align engineering, security, DevOps, and product around a shared
+                            infrastructure vision; cut Lead Time for Changes and accelerated Deployment Frequency 3×.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Cloud Solutions Architect <span class="org">· OVHcloud</span></div>
+                        <div class="role-period">2017 — 2018</div>
+                    </div>
+                    <div class="role-scope">Designed GDPR-compliant sovereign cloud architecture patterns for regulated
+                        financial and public-sector clients.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Technical Stewardship ·</span> Led the technical definition of hybrid
+                            cloud reference architectures and guided engineering teams through audit-ready cloud
+                            platform adoption.</li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Senior Managing Consultant <span class="org">· Capgemini, Defence &amp;
+                                Space</span></div>
+                        <div class="role-period">2015 — 2016</div>
+                    </div>
+                    <div class="role-scope">Co-led a PaaS platform programme for a mission-critical embedded systems
+                        project in a classified environment.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Technical Stewardship · Quality &amp; Reliability ·</span> Engineered
+                            a zero-defect CI/CD pipeline with full traceability, automated quality gates, and secure
+                            software delivery controls aligned to defence-grade certification.</li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Senior Consultant <span class="org">· Cognizant</span></div>
+                        <div class="role-period">2011 — 2015</div>
+                    </div>
+                    <div class="role-scope">Co-built and managed pan-European cloud platforms for Banking and Telecom
+                        clients.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Cross-Functional · Delivery &amp; Execution ·</span> Introduced Agile,
+                            DevOps, and SRE practices across legacy transformation programmes integrating onshore,
+                            nearshore, and offshore delivery models across Europe and North Africa.</li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-line">
+                        <div class="role-title">Head of Cloud Engineering <span class="org">· GreenSaaS → Fiducial
+                                Cloud</span></div>
+                        <div class="role-period">2008 — 2011</div>
+                    </div>
+                    <div class="role-scope">Founded and led the engineering team at one of France's first SaaS / cloud
+                        platform providers.</div>
+                    <ul class="role-impact">
+                        <li><span class="cap-tag">Team &amp; People · Delivery &amp; Execution ·</span> Designed and
+                            built multi-tenant infrastructure from the ground up; managed engineers through product
+                            delivery and production operations. Acquired by Fiducial Group.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="credentials">
+
+            <div class="cred-block">
+                <h4>Education</h4>
+                <p>Master of Computer Science<br><span class="sub">Université Aix-Marseille · 2009</span></p>
+            </div>
+
+            <div class="cred-block">
+                <h4>Certifications</h4>
+                <ul>
+                    <li>Scrum: PSM · PSPO · Kanban</li>
+                    <li>Lean Six Sigma Black Belt</li>
+                    <li>ITIL Certified</li>
+                    <li>SAFe Practitioner</li>
+                    <li>TOGAF Practitioner</li>
+                </ul>
+            </div>
+
+            <div class="cred-block">
+                <h4>Languages</h4>
+                <ul>
+                    <li>French <span class="sub">— native</span></li>
+                    <li>English <span class="sub">— full professional</span></li>
+                    <li>Spanish <span class="sub">— professional working</span></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div><!-- /page 2 -->
+
+</body>
+
+</html>

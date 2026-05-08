@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JD Match Report — Acme Corp · VP of Digital Transformation</title>
+    <style>
+        :root {
+            --green: #22c55e;
+            --green-bg: #f0fdf4;
+            --green-border: #bbf7d0;
+            --amber: #f59e0b;
+            --amber-bg: #fffbeb;
+            --amber-border: #fde68a;
+            --red: #ef4444;
+            --red-bg: #fef2f2;
+            --red-border: #fecaca;
+            --blue: #3b82f6;
+            --blue-bg: #eff6ff;
+            --blue-border: #bfdbfe;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --white: #ffffff;
+            --bar-bg: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--slate-800);
+            background: var(--slate-50);
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+            }
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 14px 18px;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: var(--slate-900);
+            color: var(--white);
+            padding: 14px 18px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .header-title {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-date {
+            font-size: 10px;
+            color: var(--slate-400);
+        }
+
+        .header-right {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .score-big {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .score-big.green {
+            color: var(--green);
+        }
+
+        .score-big.blue {
+            color: var(--blue);
+        }
+
+        .score-big.amber {
+            color: var(--amber);
+        }
+
+        .score-big.red {
+            color: var(--red);
+        }
+
+        .match-band {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .match-band.green {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .match-band.blue {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .match-band.amber {
+            background: var(--amber);
+            color: var(--white);
+        }
+
+        .match-band.red {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        /* === JD SUMMARY === */
+        .jd-summary {
+            display: flex;
+            gap: 16px;
+            padding: 8px 12px;
+            background: var(--slate-100);
+            border-radius: 4px;
+            font-size: 11px;
+            flex-wrap: wrap;
+        }
+
+        .jd-summary-item {
+            display: flex;
+            gap: 4px;
+        }
+
+        .jd-summary-label {
+            font-weight: 600;
+            color: var(--slate-500);
+            text-transform: uppercase;
+            font-size: 9px;
+            letter-spacing: 0.3px;
+        }
+
+        .jd-summary-value {
+            font-weight: 600;
+            color: var(--slate-800);
+        }
+
+        /* === SCORECARD ROW === */
+        .scorecard-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+        }
+
+        .score-card {
+            border: 1.5px solid var(--slate-200);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .score-card.green {
+            border-color: var(--green-border);
+            background: var(--green-bg);
+        }
+
+        .score-card.amber {
+            border-color: var(--amber-border);
+            background: var(--amber-bg);
+        }
+
+        .score-card.red {
+            border-color: var(--red-border);
+            background: var(--red-bg);
+        }
+
+        .score-card.blue {
+            border-color: var(--blue-border);
+            background: var(--blue-bg);
+        }
+
+        .score-card-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--slate-500);
+            margin-bottom: 4px;
+        }
+
+        .score-card-value {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .score-card.green .score-card-value {
+            color: var(--green);
+        }
+
+        .score-card.amber .score-card-value {
+            color: var(--amber);
+        }
+
+        .score-card.red .score-card-value {
+            color: var(--red);
+        }
+
+        .score-card.blue .score-card-value {
+            color: var(--blue);
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: var(--bar-bg);
+            border-radius: 3px;
+            margin: 6px 0 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .progress-fill.green {
+            background: var(--green);
+        }
+
+        .progress-fill.amber {
+            background: var(--amber);
+        }
+
+        .progress-fill.red {
+            background: var(--red);
+        }
+
+        .progress-fill.blue {
+            background: var(--blue);
+        }
+
+        .score-card-weight {
+            font-size: 9px;
+            color: var(--slate-400);
+        }
+
+        /* === DEAL-BREAKER BAR === */
+        .dealbreaker-bar {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dealbreaker-bar.clear {
+            background: var(--green-bg);
+            border: 1px solid var(--green-border);
+            color: #166534;
+        }
+
+        .dealbreaker-bar.alert {
+            background: var(--red-bg);
+            border: 1px solid var(--red-border);
+            color: #991b1b;
+        }
+
+        /* === SECTION HEADERS === */
+        .section-header {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--slate-500);
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid var(--slate-200);
+            margin-bottom: 6px;
+        }
+
+        /* === BREAKDOWN TABLES === */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .breakdown-table th {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--slate-400);
+            text-align: left;
+            padding: 3px 6px;
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .breakdown-table td {
+            padding: 3px 6px;
+            font-size: 10.5px;
+            border-bottom: 1px solid var(--slate-100);
+            vertical-align: middle;
+        }
+
+        .match-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 2px;
+            vertical-align: middle;
+        }
+
+        .match-dot.green {
+            background: var(--green);
+        }
+
+        .match-dot.amber {
+            background: var(--amber);
+        }
+
+        .match-dot.red {
+            background: var(--red);
+        }
+
+        .match-label {
+            font-size: 9px;
+            color: var(--slate-500);
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .matched-asset {
+            color: var(--slate-500);
+            font-size: 10px;
+        }
+
+        /* === QUALITATIVE ROW === */
+        .qual-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .qual-card {
+            border: 1px solid var(--slate-200);
+            border-radius: 5px;
+            padding: 8px 10px;
+        }
+
+        .qual-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .qual-card-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--slate-700);
+        }
+
+        .qual-card-score {
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .qual-card-body {
+            font-size: 10px;
+            color: var(--slate-500);
+            line-height: 1.35;
+        }
+
+        /* === RECOMMENDATIONS === */
+        .reco-section {
+            border: 1.5px solid var(--blue-border);
+            background: var(--blue-bg);
+            border-radius: 6px;
+            padding: 10px 14px;
+        }
+
+        .reco-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+
+        .reco-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 16px;
+        }
+
+        .reco-item {
+            font-size: 10px;
+            line-height: 1.35;
+            display: flex;
+            gap: 4px;
+        }
+
+        .reco-item-label {
+            font-weight: 700;
+            color: var(--slate-700);
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        .reco-item-value {
+            color: var(--slate-600);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: auto;
+            padding-top: 6px;
+            border-top: 1px solid var(--slate-200);
+            font-size: 9px;
+            color: var(--slate-400);
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-title">JD Match Report</div>
+                <div class="header-date">Generated: 2026-05-05</div>
+            </div>
+            <div class="header-right">
+                <div>
+                    <span class="match-band blue">Good Match</span>
+                </div>
+                <div class="score-big blue">78%</div>
+            </div>
+        </div>
+
+        <!-- JD SUMMARY -->
+        <div class="jd-summary">
+            <div class="jd-summary-item">
+                <span class="jd-summary-label">Company</span>
+                <span class="jd-summary-value">Acme Corp</span>
+            </div>
+            <div class="jd-summary-item">
+                <span class="jd-summary-label">Role</span>
+                <span class="jd-summary-value">VP of Digital Transformation</span>
+            </div>
+            <div class="jd-summary-item">
+                <span class="jd-summary-label">Location</span>
+                <span class="jd-summary-value">London, UK (Hybrid)</span>
+            </div>
+            <div class="jd-summary-item">
+                <span class="jd-summary-label">Seniority</span>
+                <span class="jd-summary-value">VP / Director-level</span>
+            </div>
+            <div class="jd-summary-item">
+                <span class="jd-summary-label">Domain</span>
+                <span class="jd-summary-value">Financial Services</span>
+            </div>
+        </div>
+
+        <!-- SCORECARD ROW -->
+        <div class="scorecard-row">
+            <div class="score-card green">
+                <div class="score-card-label">Required Skills</div>
+                <div class="score-card-value">82</div>
+                <div class="progress-bar">
+                    <div class="progress-fill green" style="width:82%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 30%</div>
+            </div>
+            <div class="score-card green">
+                <div class="score-card-label">Domain</div>
+                <div class="score-card-value">85</div>
+                <div class="progress-bar">
+                    <div class="progress-fill green" style="width:85%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 20%</div>
+            </div>
+            <div class="score-card green">
+                <div class="score-card-label">Seniority</div>
+                <div class="score-card-value">90</div>
+                <div class="progress-bar">
+                    <div class="progress-fill green" style="width:90%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 15%</div>
+            </div>
+            <div class="score-card blue">
+                <div class="score-card-label">Functional Fit</div>
+                <div class="score-card-value">70</div>
+                <div class="progress-bar">
+                    <div class="progress-fill blue" style="width:70%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 15%</div>
+            </div>
+            <div class="score-card amber">
+                <div class="score-card-label">Preferred Skills</div>
+                <div class="score-card-value">60</div>
+                <div class="progress-bar">
+                    <div class="progress-fill amber" style="width:60%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 10%</div>
+            </div>
+            <div class="score-card amber">
+                <div class="score-card-label">Certs & Langs</div>
+                <div class="score-card-value">55</div>
+                <div class="progress-bar">
+                    <div class="progress-fill amber" style="width:55%"></div>
+                </div>
+                <div class="score-card-weight">Weight: 10%</div>
+            </div>
+        </div>
+
+        <!-- DEAL-BREAKER BAR -->
+        <div class="dealbreaker-bar clear">
+            <span>&#10003;</span> No deal-breakers found
+        </div>
+        <!-- Alternative alert state:
+  <div class="dealbreaker-bar alert">
+    <span>&#9888;</span> DEAL-BREAKER: Required AWS Solutions Architect certification not held
+  </div>
+  -->
+
+        <!-- DETAILED BREAKDOWN -->
+        <div class="section-header">Detailed Item-by-Item Breakdown</div>
+        <div class="breakdown-grid">
+
+            <!-- LEFT: Required Skills -->
+            <div>
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>Required Skill</th>
+                            <th>Match</th>
+                            <th>Profile Asset</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="skill-name">Cloud Strategy</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Cloud-Native & Hyperscaler skill card</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Digital Transformation</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Multiple engagements + profile</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Agile / Scrum</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">PSM, PSPO, Kanban certs</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">API Strategy</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Open Banking engagement</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Stakeholder Management</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Cross-Functional Leadership card</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Enterprise Architecture</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">TOGAF cert + platform work</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">AI / ML Platforms</td>
+                            <td><span class="match-dot amber"></span> <span class="match-label">Adjacent</span></td>
+                            <td class="matched-asset">AI Factory engagement (infra, not ML)</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Data Governance</td>
+                            <td><span class="match-dot amber"></span> <span class="match-label">Adjacent</span></td>
+                            <td class="matched-asset">Platform data layer experience</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Salesforce CRM</td>
+                            <td><span class="match-dot red"></span> <span class="match-label">None</span></td>
+                            <td class="matched-asset">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RIGHT: Preferred Skills + Certs -->
+            <div>
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>Preferred Skill</th>
+                            <th>Match</th>
+                            <th>Profile Asset</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="skill-name">Kubernetes</td>
+                            <td><span class="match-dot amber"></span> <span class="match-label">Adjacent</span></td>
+                            <td class="matched-asset">Cloud-Native card (containers)</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Terraform / IaC</td>
+                            <td><span class="match-dot amber"></span> <span class="match-label">Adjacent</span></td>
+                            <td class="matched-asset">DevOps & CI/CD card</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Financial Regulation</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Open Banking + Insurance engagements</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Tableau / BI Tools</td>
+                            <td><span class="match-dot red"></span> <span class="match-label">None</span></td>
+                            <td class="matched-asset">—</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">Six Sigma</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">Lean Six Sigma Black Belt cert</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="height: 8px;"></div>
+
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>Cert / Language</th>
+                            <th>Match</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="skill-name">TOGAF</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">TOGAF Practitioner held</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">AWS Cert (preferred)</td>
+                            <td><span class="match-dot red"></span> <span class="match-label">None</span></td>
+                            <td class="matched-asset">Not held</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">English (fluent)</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">English fluent</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name">French (preferred)</td>
+                            <td><span class="match-dot green"></span> <span class="match-label">Direct</span></td>
+                            <td class="matched-asset">French native</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- QUALITATIVE ASSESSMENTS -->
+        <div class="section-header">Qualitative Assessments</div>
+        <div class="qual-row">
+            <div class="qual-card">
+                <div class="qual-card-header">
+                    <span class="qual-card-title">Domain Alignment</span>
+                    <span class="qual-card-score" style="color:var(--green);">85</span>
+                </div>
+                <div class="qual-card-body">
+                    Direct experience in financial services via Open Banking and Insurance-as-a-Service engagements.
+                    Strong sector credibility.
+                </div>
+            </div>
+            <div class="qual-card">
+                <div class="qual-card-header">
+                    <span class="qual-card-title">Seniority Fit</span>
+                    <span class="qual-card-score" style="color:var(--green);">90</span>
+                </div>
+                <div class="qual-card-body">
+                    15+ years matches the 12+ requirement. Engagement Manager at Deloitte aligns with VP-level scope.
+                    Budget/team oversight demonstrated.
+                </div>
+            </div>
+            <div class="qual-card">
+                <div class="qual-card-header">
+                    <span class="qual-card-title">Functional Fit</span>
+                    <span class="qual-card-score" style="color:var(--blue);">70</span>
+                </div>
+                <div class="qual-card-body">
+                    Strong advisory + delivery overlap. Role includes sales/BD responsibilities (20%) which would need
+                    repositioning via entrepreneurial track.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAILORING RECOMMENDATIONS -->
+        <div class="reco-section">
+            <div class="reco-title">Tailoring Recommendations</div>
+            <div class="reco-grid">
+                <div class="reco-item">
+                    <span class="reco-item-label">Headline:</span>
+                    <span class="reco-item-value">"Digital Transformation & Platform Strategy Leader — Financial
+                        Services"</span>
+                </div>
+                <div class="reco-item">
+                    <span class="reco-item-label">Lead engagement:</span>
+                    <span class="reco-item-value">Open Banking Platform (direct FS domain match)</span>
+                </div>
+                <div class="reco-item">
+                    <span class="reco-item-label">Skills emphasis:</span>
+                    <span class="reco-item-value">Cloud-Native first, then API & Integration, then DevOps</span>
+                </div>
+                <div class="reco-item">
+                    <span class="reco-item-label">Gap strategy:</span>
+                    <span class="reco-item-value">Omit Salesforce/BI gaps; reposition AI Factory as ML-adjacent</span>
+                </div>
+                <div class="reco-item">
+                    <span class="reco-item-label">Vocabulary:</span>
+                    <span class="reco-item-value">Mirror "digital transformation", "enterprise architecture", "cloud
+                        strategy"</span>
+                </div>
+                <div class="reco-item">
+                    <span class="reco-item-label">Entrepreneurial:</span>
+                    <span class="reco-item-value">Include — role has BD/sales component (20%)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>JD Match Scorer v1.0 — laurent.vincentelli.pro</span>
+            <span>Recommendations file: Recommendations_AcmeCorp_VPDigitalTransformation.md</span>
+        </div>
+
+    </div>
+</body>
+
+</html>
