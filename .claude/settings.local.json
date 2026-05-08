@@ -7,7 +7,9 @@
       "WebSearch",
       "Bash(gh pr *)",
       "Bash(gh repo *)",
-      "Bash(gh --version)"
+      "Bash(gh --version)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:lu.linkedin.com)"
     ]
   }
 }
