@@ -13,7 +13,9 @@
       "Read(//workspace/**)",
       "Bash(ls /)",
       "Bash(find / -maxdepth 4 -name \"CLAUDE.md\")",
-      "Bash(find /Users/lvi/Documents/Second-Brain/workspaces -maxdepth 4 -type d 2>/dev/null | grep -i \"ey\\\\|engineering\" | head -20)"
+      "Bash(find /Users/lvi/Documents/Second-Brain/workspaces -maxdepth 4 -type d 2>/dev/null | grep -i \"ey\\\\|engineering\" | head -20)",
+      "Bash(grep -n \"section class=\\\\\"exec-summary\\\\\"\\\\|section.*pillars\\\\|<!-- /page 1 -->\\\\|<section>$\\\\|class=\\\\\"section-title\\\\\"\" /Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/ey-luxembourg-digital-factory-engineering-manager/v3/CV_Laurent_Vincentelli_EY_v3.html)",
+      "Bash(awk 'NR==565,/^      <\\\\/section>$/{print NR\": \"$0; if \\(/^      <\\\\/section>$/\\) exit}' /Users/lvi/Documents/Second-Brain/workspaces/laurent-cv-library/ey-luxembourg-digital-factory-engineering-manager/v3/CV_Laurent_Vincentelli_EY_v3.html)"
     ]
   }
 }
