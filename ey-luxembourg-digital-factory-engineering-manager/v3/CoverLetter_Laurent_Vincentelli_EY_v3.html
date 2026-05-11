@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Cover Letter — Laurent Vincentelli · EY Luxembourg Digital Factory ·
+      Engineering Manager (Associate Director)
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --page-w: 210mm;
+        --page-h: 297mm;
+        --ink: #1a1a2e;
+        --accent: #ffe600;
+        --accent-dark: #2e2e38;
+        --highlight: #747480;
+        --muted: #5a6275;
+        --rule: #d8dde6;
+        --bg: #ffffff;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "DM Sans", "Segoe UI", sans-serif;
+      }
+
+      html {
+        font-size: 11.25px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--ink);
+        background: #d5d5d5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        width: var(--page-w);
+        height: var(--page-h);
+        overflow: hidden;
+        background: var(--bg);
+        margin: 8mm auto;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+        position: relative;
+        padding: 0 22mm 18mm 22mm;
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+
+      /* ── YELLOW STRIP (EY brand anchor) ───── */
+      .letter-strip {
+        height: 10mm;
+        background: var(--accent);
+        margin: 0 -22mm 12mm -22mm;
+      }
+
+      /* ── SENDER BLOCK ───────────────────── */
+      .sender {
+        margin-bottom: 14mm;
+      }
+      .sender h1 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--accent-dark);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin-bottom: 2.5mm;
+      }
+      .sender-meta {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .sender-meta .relocation {
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+
+      /* ── DATE + RECIPIENT ───────────────── */
+      .date-line {
+        font-size: 0.92rem;
+        color: var(--ink);
+        margin-bottom: 8mm;
+      }
+      .recipient {
+        font-size: 0.95rem;
+        color: var(--ink);
+        line-height: 1.5;
+        margin-bottom: 8mm;
+      }
+      .recipient .org {
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      /* ── SUBJECT LINE (yellow bar) ──────── */
+      .subject-line {
+        display: flex;
+        align-items: center;
+        gap: 3mm;
+        margin-bottom: 7mm;
+        font-size: 1rem;
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+      .subject-line::before {
+        content: "";
+        display: block;
+        width: 1.4mm;
+        height: 5mm;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+
+      /* ── SALUTATION ─────────────────────── */
+      .salutation {
+        font-size: 1rem;
+        color: var(--ink);
+        margin-bottom: 5mm;
+      }
+
+      /* ── BODY ───────────────────────────── */
+      .body p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--ink);
+        margin-bottom: 4mm;
+      }
+      .body p strong {
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      /* ── FRENCH CLOSER ──────────────────── */
+      .french-closer {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--accent-dark);
+        font-style: italic;
+        margin-top: 2mm;
+        margin-bottom: 5mm;
+      }
+
+      /* ── SIGNATURE BLOCK ────────────────── */
+      .signature {
+        margin-top: 2mm;
+      }
+      .signature .sign-off {
+        font-size: 1rem;
+        color: var(--ink);
+        margin-bottom: 12mm;
+      }
+      .signature .sig-name {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--accent-dark);
+        line-height: 1;
+      }
+
+      /* ── ATTACHMENTS LINE ───────────────── */
+      .attachments {
+        margin-top: auto;
+        padding-top: 4mm;
+        border-top: 1px solid var(--rule);
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .attachments .att-label {
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="letter-strip"></div>
+
+      <div class="sender">
+        <h1>Laurent Vincentelli</h1>
+        <div class="sender-meta">
+          <a href="mailto:laurent@vincentelli.pro" style="color: inherit; text-decoration: none;"
+            >laurent@vincentelli.pro</a
+          >
+          ·
+          <a
+            href="https://www.linkedin.com/in/laurentvincentelli/"
+            style="color: inherit; text-decoration: none;"
+            >linkedin.com/in/laurentvincentelli</a
+          ><br />
+          Montreal, QC, Canada · Schengen space citizenship (French)<br />
+          <span class="relocation">Willing to relocate to Luxembourg.</span>
+        </div>
+      </div>
+
+      <div class="date-line">11 May 2026</div>
+
+      <div class="recipient">
+        <span class="org">EY Luxembourg</span><br />
+        Hiring Team — Digital Factory<br />
+        Luxembourg
+      </div>
+
+      <div class="subject-line">
+        Re: Engineering Manager — Associate Director — Digital Factory
+        (Requisition ID 1689147)
+      </div>
+
+      <p class="salutation">Dear EY Luxembourg Hiring Team,</p>
+
+      <div class="body">
+        <p>
+          <strong
+            >EY's 15,000-hire announcement for 2026 signals a repositioning,
+            not a hiring spree.</strong
+          >
+          The old advisory model is being replaced by execution capability
+          across AI, data, and digital transformation. The firms that win
+          this shift are the ones that stop talking about transformation and
+          start industrializing it. That shift is exactly what the EY
+          Luxembourg Digital Factory is built to deliver.
+        </p>
+
+        <p>
+          Luxembourg's asset-management and private-banking Partners face a
+          specific challenge: shipping value predictably while staying
+          audit-ready under FSI regulatory constraints. That tension (speed
+          vs. compliance) is the operating reality of every Digital Factory
+          I have led. I want to bring that operating system to the EY
+          Luxembourg Digital Factory, at a moment when the construct is
+          right, the market is moving, and your clients need execution
+          depth.
+        </p>
+
+        <p>
+          <strong>My value proposition rests on two interlocking commitments.</strong>
+          I will lead the engineering team(s) directly, organising a
+          cross-functional topology of cloud and data engineers, backend
+          developers, QA, DevSecOps, and Platform Engineers alongside
+          Business, SMEs, Architects, PMO, Security, Product, and Design.
+          Through that team, I will own three value streams: Delivery &amp;
+          Execution (DORA + SPACE), Technical Stewardship (modern SDLC +
+          architecture), and Quality, Reliability &amp; Operability (SRE +
+          Platform Engineering). All four mandates, audit-ready under FSI
+          compliance.
+        </p>
+
+        <p>
+          <strong>This is not theory.</strong> I have run, scaled, and
+          pivoted this playbook across four regulated Canadian FSI Digital
+          Factories: BDC (asset management and private equity), Desjardins
+          (cooperative banking, insurance, wealth management), RBC Capital
+          Markets (investment banking), and Payments Canada (national
+          payments infrastructure). The attached Candidacy Pitch and CV walk
+          through the structure and the numbers.
+        </p>
+
+        <p>
+          I welcome the conversation. Happy to defend any of the above in
+          interview, walk through specifics with your team, or unpack the
+          playbook against EY Luxembourg's current Digital Factory mandates.
+          <strong>Challenge me.</strong>
+        </p>
+      </div>
+
+      <div class="french-closer">Au plaisir d'en discuter de vive voix,</div>
+
+      <div class="signature">
+        <div class="sign-off">Kind regards,</div>
+        <div class="sig-name">Laurent Vincentelli</div>
+      </div>
+
+      <div class="attachments">
+        <span class="att-label">Attachments ·</span> CV · Candidacy Pitch
+      </div>
+    </div>
+  </body>
+</html>
