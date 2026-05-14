@@ -26,3 +26,4 @@ dist-ssr
 # IDE and Project Settings
 .devcontainer/
 .obsidian/
+.claude/
