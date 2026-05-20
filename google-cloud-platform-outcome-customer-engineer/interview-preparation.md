@@ -10,13 +10,13 @@
 
 Realistic shape for a 20-minute EMEA Cloud CE HRBP screen. An HRBP at Karina's level confirms role-fit *signals* (player-coach posture, GSI experience, consumption mindset) but does not run deep technical probes — that belongs to the hiring manager loop. The agenda below reflects that.
 
-| **Timeline**       | **Phase**                  | **Focus & Guardrails**                                                                                       |
-| ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **00:00 – 02:00**  | **Intro & Warmup**         | Greetings, confirm Paris / French citizen / fluent FR-EN. Let Karina set the pace.                            |
-| **02:00 – 09:00**  | **Your Story & Why Google**| Crisp background synthesis, then the "Why Now / Why Google" pivot anchored on Cloud Next '26.                 |
-| **09:00 – 13:00**  | **Role-Fit Probe**         | Karina probes player-coach reality, consumption mindset, GSI orchestration. Stay at "what I do" — not "how." |
-| **13:00 – 17:00**  | **Logistics & Compensation**| Right-to-work (French citizen), location (Paris), notice period (Deloitte), €250K TC target.                 |
-| **17:00 – 20:00**  | **Your Questions & Next Steps** | Two strategic questions, then let Karina describe the process.                                          |
+| **Timeline**      | **Phase**                       | **Focus & Guardrails**                                                                                       |
+| ----------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **00:00 – 02:00** | **Intro & Warmup**              | Greetings, confirm Paris / French citizen / fluent FR-EN. Let Karina set the pace.                           |
+| **02:00 – 09:00** | **Your Story & Why Google**     | Crisp background synthesis, then the "Why Now / Why Google" pivot anchored on Cloud Next '26.                |
+| **09:00 – 13:00** | **Role-Fit Probe**              | Karina probes player-coach reality, consumption mindset, GSI orchestration. Stay at "what I do" — not "how." |
+| **13:00 – 17:00** | **Logistics & Compensation**    | Right-to-work (French citizen), location (Paris), notice period (Deloitte), €250K TC target.                 |
+| **17:00 – 20:00** | **Your Questions & Next Steps** | Two strategic questions, then let Karina describe the process.                                               |
 
 ---
 
