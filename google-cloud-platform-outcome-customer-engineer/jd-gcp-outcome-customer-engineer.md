@@ -6,7 +6,6 @@
 - Bachelor's degree or equivalent practical experience.
 - 10 years of experience with cloud native architecture in a customer-facing or support role.
 - Experience in deployment planning, orchestration, or change management, as well as in programming languages, debugging, or systems design.
-    
 - Experience with cloud infrastructure or application modernization in a delivery role.
 - Experience in one or more core areas: infrastructure modernization, cloud runtimes (GKE/cloud run), databases, or networking and security.
 - Ability to communicate in English and French fluently to work in this client facing role.
