@@ -1,6 +1,16 @@
-On site
 
-Full time
+Date:  31 May 2026
+
+Location:  Luxembourg, LU
+
+Company:  Deloitte Luxembourg
+
+Job Function:  Internal Functions - Internal Client, a priori : https://www.linkedin.com/in/ymettavant/
+
+Seniority:  Manager levels
+
+Contract Type:  Open-term, On site, Full time
+
 
 Your future team
 
