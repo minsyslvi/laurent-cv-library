@@ -5,7 +5,9 @@ Location:  Luxembourg, LU
 
 Company:  Deloitte Luxembourg
 
-Job Function:  Internal Functions - Internal Client, a priori : https://www.linkedin.com/in/ymettavant/
+Job Function:  Internal Functions 
+- Internal Client, a priori : https://www.linkedin.com/in/ymettavant/
+- Capability : Digital factory -  
 
 Seniority:  Manager levels
 
