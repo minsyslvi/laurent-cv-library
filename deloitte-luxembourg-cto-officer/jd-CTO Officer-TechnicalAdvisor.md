@@ -7,7 +7,7 @@ Company:  Deloitte Luxembourg
 
 Job Function:  Internal Functions 
 - Internal Client, a priori : https://www.linkedin.com/in/ymettavant/
-- Capability : Digital factory -  
+- Capability : a priori Digital factory - https://www.deloitte.com/lu/en/services/consulting/services/digital-factory.html 
 
 Seniority:  Manager levels
 
